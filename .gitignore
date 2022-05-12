@@ -1,0 +1,12 @@
+__pycache__/
+.ipynb_checkpoints/
+.vscode
+
+.Rhistory
+.Rproj.user
+*_files/
+DSbyAppsilon.Rproj
+
+.materials
+archives
+notes.md
