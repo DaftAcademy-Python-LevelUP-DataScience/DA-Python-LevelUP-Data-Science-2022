@@ -1,0 +1,245 @@
+---
+title: "Python LevelUP: Data Science by Appsilon"
+subtitle: "Wprowadzenie do kursu"
+author: "Piotr Pasza Storożenko@Appsilon"
+lang: "pl"
+format: 
+  revealjs:
+    self-contained: true
+    # smaller: true
+    theme: [dark]
+    logo: images/logo2.png
+editor_options: 
+  markdown: 
+    wrap: 99
+---
+
+# Wstęp
+
+## O mnie
+
+Piotr Pasza Storożenko, 
+Machine Learning Engineer
+
+Trochę:
+
+- MLowiec
+- Fizyk
+- Informatyk
+- Matematyk
+
+więcej na moim blogu [pstorozenko.github.io](https://pstorozenko.github.io/).
+
+## {background-image="images/about_appsilon1.png"}
+
+## {background-image="images/about_appsilon2.png"}
+
+## Po co jest ten kurs?
+
+Menti time
+
+## Po co jest ten kurs?
+
+Przez kilka lat zdobyłem dużo wiedzy na temat `python`a, `R`-a, `julia`'i, data science, machine learningu, deep learningu, programowania.
+
+Teraz mogę się nią podzielić z Wami!
+
+. . .
+
+Temat mojej magisterki:
+
+> Competition for attention between online social memes.
+
+## Po co jest ten kurs?
+
+![](images/explain5.gif){fig-align="center"}
+
+## Co będzie ciekawe dla kogo{.smaller}
+
+:::: {.columns}
+
+:::{.column}
+- Informatycy
+  - Wygodne i **wydajne** narzędzia do pracy z danymi
+  - Stworzone dla programistów
+- Matematycy 
+  - Intuicyjne narzędzia, wspierające powtarzalne eksperymenty
+  - _Bajecznie proste_ przedstawianie wyników
+- Elektronicy, mechanicy
+  - Doskonała alternatywa dla matlaba
+  - Wygodna w użyciu
+  - Proste wykresy, animacje
+:::
+
+:::{.column}
+- Studenci SGH 
+  - Wspaniała alternatywa dla arkuszy kalkulacyjnych
+  - Zestaw **darmowych** i otwartych narzędzi
+  - Nieporównywalnie większa kontrola nad danymi w porównaniu do MS Office, Tableau, PowerBI itp.
+- Fizycy, chemicy, biolodzy
+  - Wspaniałe uwolnienie od arkuszy kalkulacyjnych
+  - Darmowe oprogramowanie
+  - Znacząco łatwiejsze do robienia **reprodukowalne** wykresy
+:::
+
+::::
+
+# Data Science
+
+## Data Science
+
+Menti time
+
+## Czym jest Data Science?
+
+![](images/datascience.png){fig-align="center"}
+
+::: footer
+Źródło: [https://medium.com/data-science-in-2019/what-is-data-science-87e9dc225cf9](https://medium.com/data-science-in-2019/what-is-data-science-87e9dc225cf9)
+:::
+
+## Po co Data Science?
+
+![](images/dataneversleeps2.png){fig-align="center"}
+
+::: footer
+Źródło: [https://www.domo.com/learn/infographic/data-never-sleeps-9](https://www.domo.com/learn/infographic/data-never-sleeps-9)
+:::
+
+## Wyjaśnienie różnych terminów{.smaller}
+
+- Sztuczna Inteligencja, SI (Artificial Inteligence, AI) -- bardzo szeroki [umbrella term](https://en.wiktionary.org/wiki/umbrella_term) związany ze wszystkim gdzie komputer/system na podstawie jakichś zasad (algorytmów) podejmuje decyzje.
+- Data Science (DS) -- wszystko co związane z danymi, od ich pozyskania przez przetwarzanie po wyświetlenie, wykorzystanie.
+- Uczenie Maszynowe (Machine Learning, ML) -- wszystko co związane z tworzeniem (uczeniem/trenowaniem) modeli/systemów w których komputer _uczy się_ na podstawie dostarczonych danych pewnych reguł i zasad.
+- [Głębokie] Sieci Neuronowe ([Deep] Neural Networks, [D]NN) -- podzbiór metod uczenia maszynowego wykorzystujący specyficzną klasę modeli - sieci neuronowe. Ich budowa trochę przypomina połączenia między neuronomi biologicznymi, stąd nazwa.
+
+## Kim jest Data Scientist?
+
+Osoba która jednocześnie:
+
+1. Rozmawia z _biznesem_ na temat potrzebnych rozwiązań.
+2. Na podstawie dostarczonych oraz samodzielnie zebranych danych tworzy programistycznie rozwiązania.
+3. Przedstawia rozwiązania _biznesowi_ w czytelny i interesujący sposób.
+
+
+Biznes mówi o **AI**, specjaliści raczej o **ML**...
+
+## Kim jest Data Scientist?
+
+![](images/meme3.jpg){fig-align="center"}
+
+## Kim jest Data Scientist?
+
+![](images/ai_meme1.jpeg){fig-align="center"}
+
+## Workflow Data Science
+
+![](images/the-data-science-workflow.jpeg){fig-align="center"}
+
+::: {.notes}
+Zaznaczanie
+:::
+
+::: footer
+Źródło: [https://www.business-science.io/business/2019/06/27/data-science-workflow.html](https://www.business-science.io/business/2019/06/27/data-science-workflow.html)
+:::
+
+
+## Narzędzia Data Science
+
+![](images/dominotools.png){fig-align="center"}
+
+::: footer
+Źródło: [https://blog.dominodatalab.com/data-science-tools](https://blog.dominodatalab.com/data-science-tools)
+:::
+
+# Plan kursu
+
+1. Wprowadzenie oraz `numpy` czyli praca na liczbach
+2. `pandas` czyli ramki danych
+3. `matplotlib` i `plotly` czyli wykresy
+4. `scikit-learn` czyli wstęp do machine learningu
+5. `streamlit` czyli dashboardy
+
+## Plan kursu
+
+![](images/meme2.jpeg){fig-align="center"}
+
+
+## Workflow Data Science x Nasz kurs
+
+![](images/datascienceworkflow2a.png){fig-align="center"}
+
+::: footer
+Źródło: [https://www.business-science.io/business/2019/06/27/data-science-workflow.html](https://www.business-science.io/business/2019/06/27/data-science-workflow.html)
+:::
+
+## Workflow Data Science x Nasz kurs ++
+
+![](images/datascienceworkflow_extended.png){fig-align="center"}
+
+::: footer
+Źródło: [https://www.business-science.io/business/2019/06/27/data-science-workflow.html](https://www.business-science.io/business/2019/06/27/data-science-workflow.html)
+:::
+
+# Narzędzia wykorzystywane w kursie 
+
+## Narzędzia wykorzystywane w kursie
+
+- Python 3.9/3.10 via [Anaconda](https://www.anaconda.com/products/distribution#Downloads) + liczne paczki
+- Visual Studio Code aka [VS Code](https://code.visualstudio.com/download)
+
+## Anaconda{.smaller}
+
+Anaconda to standard jeżeli chodzi o zarządzanie wersjami pythona w środowisku data science/machine learningu.
+Pozwala na uzyskanie _konsystentnego_ środowiska pomiędzy różnymi systemami.
+
+Dlaczego to ważne?
+
+W pracy DSowca bardzo często pracujesz nad kilkoma różnymi projektami jednocześnie.
+Każdy z projektów może wymagać określonego środowiska, z określonymi wersjami pythona i bibliotek.
+
+To rozwiązanie może być również przydatne przy wielu różnych przedmiotach na studiach!
+
+## Anaconda - jak stworzyć środowisko{.smaller}
+
+Po zainstalowaniu anacondy należy [sklonować repozytorium kursu](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository), w terminalu przejść do folderu z repo, a następnie wywołać:
+```
+conda create -n daftacademy-ds python
+```
+zaakceptować instalację środowiska i dalej:
+```
+conda activate daftacademy-ds
+pip install -r requirements.txt
+```
+
+Jeżeli otrzymujesz komunikat
+```
+ERROR: Could not open requirements file: [Errno 2] No such file or directory: 'requirements.txt'
+```
+to znaczy, że jesteś w złym folderze.
+
+W razie problemów z polecam zapoznać się z [oficjalnym tutorialem do condy](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html).
+
+## VSCode - edytor kodu na 2022 rok
+
+Dlaczego [VS Code](https://code.visualstudio.com/#alt-downloads)?
+
+- Wspaniałe wsparcie zarówno do pisania skryptów pythonowych jak i <u>jupyter notebooków</u>.
+- Automatycznie wykrywa środowiska condowe.
+- Wspaniałe wsparcie dla pracy ze zdalnymi maszynami przez SSH (z tego nie będziemy korzystać).
+- Jedno narzędzie do pracy z pythonem, R, julią, javascriptem, typescriptem itp. itd.
+- A ponad to wszystko -- VS Code <u>jest darmowy</u>
+
+## Co zrobić po zainstalowaniu VS Code?
+
+Zainstaluj rozszerzenia:
+
+- [Pylance](https://marketplace.visualstudio.com/items?itemName=ms-python.vscode-pylance)
+- [Jupyter](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter)
+
+Środowisko gotowe do pracy i nauki!
+
+. . .
+
+![](images/sofast.gif){fig-align="center"}

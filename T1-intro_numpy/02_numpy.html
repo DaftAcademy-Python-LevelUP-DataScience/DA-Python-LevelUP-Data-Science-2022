@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.370">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Piotr Pasza Storożenko">
+
+<title>Python LevelUP: Data Science by Appsilon</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="02_numpy_files/libs/clipboard/clipboard.min.js"></script>
+<script src="02_numpy_files/libs/quarto-html/quarto.js"></script>
+<script src="02_numpy_files/libs/quarto-html/popper.min.js"></script>
+<script src="02_numpy_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="02_numpy_files/libs/quarto-html/anchor.min.js"></script>
+<link href="02_numpy_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link class="quarto-color-scheme" id="quarto-text-highlighting-styles" href="02_numpy_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<link class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles" href="02_numpy_files/libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet">
+<script src="02_numpy_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="02_numpy_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link class="quarto-color-scheme" href="02_numpy_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<link class="quarto-color-scheme quarto-color-alternate" href="02_numpy_files/libs/bootstrap/bootstrap-dark.min.css" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Spis treści</h2>
+   
+  <ul>
+  <li><a href="#listy-przypomnienie" id="toc-listy-przypomnienie" class="nav-link active" data-scroll-target="#listy-przypomnienie"> <span class="header-section-number">1</span> Listy przypomnienie</a>
+  <ul class="collapse">
+  <li><a href="#tworzenie-listy" id="toc-tworzenie-listy" class="nav-link" data-scroll-target="#tworzenie-listy"> <span class="header-section-number">1.1</span> Tworzenie listy</a></li>
+  <li><a href="#iterowanie-po-liście" id="toc-iterowanie-po-liście" class="nav-link" data-scroll-target="#iterowanie-po-liście"> <span class="header-section-number">1.2</span> Iterowanie po liście</a></li>
+  <li><a href="#indeksowanie-listy" id="toc-indeksowanie-listy" class="nav-link" data-scroll-target="#indeksowanie-listy"> <span class="header-section-number">1.3</span> Indeksowanie listy</a></li>
+  </ul></li>
+  <li><a href="#numpy" id="toc-numpy" class="nav-link" data-scroll-target="#numpy"> <span class="header-section-number">2</span> Numpy</a>
+  <ul class="collapse">
+  <li><a href="#podstawowe-tworzenie-i-indeksowanie-arrayi" id="toc-podstawowe-tworzenie-i-indeksowanie-arrayi" class="nav-link" data-scroll-target="#podstawowe-tworzenie-i-indeksowanie-arrayi"> <span class="header-section-number">2.1</span> Podstawowe tworzenie i indeksowanie array’i</a></li>
+  <li><a href="#przydatne-pola" id="toc-przydatne-pola" class="nav-link" data-scroll-target="#przydatne-pola"> <span class="header-section-number">2.2</span> Przydatne pola</a></li>
+  <li><a href="#przypadek-wielowymiarowy" id="toc-przypadek-wielowymiarowy" class="nav-link" data-scroll-target="#przypadek-wielowymiarowy"> <span class="header-section-number">2.3</span> Przypadek wielowymiarowy</a></li>
+  <li><a href="#typowe-sposoby-tworzenia-arrayi" id="toc-typowe-sposoby-tworzenia-arrayi" class="nav-link" data-scroll-target="#typowe-sposoby-tworzenia-arrayi"> <span class="header-section-number">2.4</span> Typowe sposoby tworzenia array’i</a></li>
+  <li><a href="#typy-elementów-w-arrayu" id="toc-typy-elementów-w-arrayu" class="nav-link" data-scroll-target="#typy-elementów-w-arrayu"> <span class="header-section-number">2.5</span> Typy elementów w array’u</a></li>
+  <li><a href="#nibyliczby-specjalne" id="toc-nibyliczby-specjalne" class="nav-link" data-scroll-target="#nibyliczby-specjalne"> <span class="header-section-number">2.6</span> Nibyliczby specjalne</a></li>
+  <li><a href="#arraye-z-napisami" id="toc-arraye-z-napisami" class="nav-link" data-scroll-target="#arraye-z-napisami"> <span class="header-section-number">2.7</span> Array’e z napisami</a></li>
+  <li><a href="#operacje-na-arrayach" id="toc-operacje-na-arrayach" class="nav-link" data-scroll-target="#operacje-na-arrayach"> <span class="header-section-number">2.8</span> Operacje na array’ach</a></li>
+  <li><a href="#operacje-logiczne" id="toc-operacje-logiczne" class="nav-link" data-scroll-target="#operacje-logiczne"> <span class="header-section-number">2.9</span> Operacje logiczne</a></li>
+  <li><a href="#operacje-macierzowe" id="toc-operacje-macierzowe" class="nav-link" data-scroll-target="#operacje-macierzowe"> <span class="header-section-number">2.10</span> Operacje macierzowe</a></li>
+  <li><a href="#łączenie-arrayów" id="toc-łączenie-arrayów" class="nav-link" data-scroll-target="#łączenie-arrayów"> <span class="header-section-number">2.11</span> Łączenie array’ów</a></li>
+  <li><a href="#metody-na-arrayach" id="toc-metody-na-arrayach" class="nav-link" data-scroll-target="#metody-na-arrayach"> <span class="header-section-number">2.12</span> Metody na array’ach</a></li>
+  <li><a href="#operacje-na-arrayach-boolowych" id="toc-operacje-na-arrayach-boolowych" class="nav-link" data-scroll-target="#operacje-na-arrayach-boolowych"> <span class="header-section-number">2.13</span> Operacje na array’ach boolowych</a></li>
+  <li><a href="#o-dwóch-sumach" id="toc-o-dwóch-sumach" class="nav-link" data-scroll-target="#o-dwóch-sumach"> <span class="header-section-number">2.14</span> O dwóch sumach</a></li>
+  <li><a href="#dlaczego-różne-sumy-dały-różne-wyniki-czyli-o-precyzji-liczb-zmiennoprzecinkowych" id="toc-dlaczego-różne-sumy-dały-różne-wyniki-czyli-o-precyzji-liczb-zmiennoprzecinkowych" class="nav-link" data-scroll-target="#dlaczego-różne-sumy-dały-różne-wyniki-czyli-o-precyzji-liczb-zmiennoprzecinkowych"> <span class="header-section-number">2.15</span> Dlaczego różne sumy dały różne wyniki czyli o precyzji liczb zmiennoprzecinkowych</a></li>
+  <li><a href="#indeksowanie-odwiedzone-ponownie" id="toc-indeksowanie-odwiedzone-ponownie" class="nav-link" data-scroll-target="#indeksowanie-odwiedzone-ponownie"> <span class="header-section-number">2.16</span> Indeksowanie odwiedzone ponownie</a></li>
+  <li><a href="#sortowanie-arrayi" id="toc-sortowanie-arrayi" class="nav-link" data-scroll-target="#sortowanie-arrayi"> <span class="header-section-number">2.17</span> Sortowanie array’i</a></li>
+  <li><a href="#zwektoryzowany-ifelse" id="toc-zwektoryzowany-ifelse" class="nav-link" data-scroll-target="#zwektoryzowany-ifelse"> <span class="header-section-number">2.18</span> Zwektoryzowany ifelse</a></li>
+  </ul></li>
+  <li><a href="#zaawansowane-tricki-i-sztuczki" id="toc-zaawansowane-tricki-i-sztuczki" class="nav-link" data-scroll-target="#zaawansowane-tricki-i-sztuczki"> <span class="header-section-number">3</span> Zaawansowane tricki i sztuczki</a>
+  <ul class="collapse">
+  <li><a href="#np.r-czyli-nie-chce-pamiętać-np.array-np.arange-np.linspace-i-innych." id="toc-np.r-czyli-nie-chce-pamiętać-np.array-np.arange-np.linspace-i-innych." class="nav-link" data-scroll-target="#np.r-czyli-nie-chce-pamiętać-np.array-np.arange-np.linspace-i-innych."> <span class="header-section-number">3.1</span> <code>np.r[]</code> czyli nie chce pamiętać <code>np.array</code>, <code>np.arange</code>, <code>np.linspace</code> i innych.</a></li>
+  <li><a href="#nie-chce-mi-się-liczyć-ostatniego-wymiaru" id="toc-nie-chce-mi-się-liczyć-ostatniego-wymiaru" class="nav-link" data-scroll-target="#nie-chce-mi-się-liczyć-ostatniego-wymiaru"> <span class="header-section-number">3.2</span> Nie chce mi się liczyć ostatniego wymiaru…</a></li>
+  </ul></li>
+  <li><a href="#numba-czyli-jak-wygrać-z-pętlami" id="toc-numba-czyli-jak-wygrać-z-pętlami" class="nav-link" data-scroll-target="#numba-czyli-jak-wygrać-z-pętlami"> <span class="header-section-number">4</span> Numba czyli jak wygrać z pętlami</a>
+  <ul class="collapse">
+  <li><a href="#suma-z-numbą" id="toc-suma-z-numbą" class="nav-link" data-scroll-target="#suma-z-numbą"> <span class="header-section-number">4.1</span> Suma z numbą</a></li>
+  <li><a href="#symulacja-stochastycznego-równania-różniczkowego-coś-z-sgh" id="toc-symulacja-stochastycznego-równania-różniczkowego-coś-z-sgh" class="nav-link" data-scroll-target="#symulacja-stochastycznego-równania-różniczkowego-coś-z-sgh"> <span class="header-section-number">4.2</span> Symulacja stochastycznego równania różniczkowego – coś z SGH</a></li>
+  </ul></li>
+  <li><a href="#nie-weszło-na-sprint-ale-może-się-przydać" id="toc-nie-weszło-na-sprint-ale-może-się-przydać" class="nav-link" data-scroll-target="#nie-weszło-na-sprint-ale-może-się-przydać"> <span class="header-section-number">5</span> Nie weszło na sprint ale może się przydać…</a></li>
+  <li><a href="#do-pracy-domowej" id="toc-do-pracy-domowej" class="nav-link" data-scroll-target="#do-pracy-domowej"> <span class="header-section-number">6</span> Do pracy domowej</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Python LevelUP: Data Science by Appsilon</h1>
+<p class="subtitle lead">Tydzień 1 - Numpy</p>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Piotr Pasza Storożenko </p>
+          </div>
+  </div>
+    
+    
+  </div>
+  
+
+</header>
+
+<p><img src="images/logo2.png" class="img-fluid"></p>
+<p><strong>Tydzień 1 - Numpy (ale najpierw listy)</strong></p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">10</span>).reshape((<span class="dv">2</span>, <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x.reshape((<span class="dv">5</span>,<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>y[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">12</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>array([[12, 12],
+       [ 2,  3],
+       [ 4,  5],
+       [ 6,  7],
+       [ 8,  9]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>array([[12, 12,  2,  3,  4],
+       [ 5,  6,  7,  8,  9]])</code></pre>
+</div>
+</div>
+<p>Podstawą wszystkich obliczeń na komputerze są… liczby. Rzadko kiedy operujemy jednak na pojedynczych liczbach, z reguły pracujemy na całych tablicach/wektorach liczb. Do tego właśnie służy <code>numpy</code>.</p>
+<p>Ktoś mógłby zapytać <em>co złego jest w wbudowanym typie <code>list</code></em>. Zacznijmy od przyjrzenia mu się bliżej.</p>
+<section id="listy-przypomnienie" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Listy przypomnienie</h1>
+<section id="tworzenie-listy" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="tworzenie-listy"><span class="header-section-number">1.1</span> Tworzenie listy</h2>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>l <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>l</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>[1, 2, 3]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(l), l[<span class="dv">0</span>], l[<span class="op">-</span><span class="dv">1</span>], <span class="bu">len</span>(l), <span class="bu">sum</span>(l)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="2">
+<pre><code>(list, 1, 3, 3, 6)</code></pre>
+</div>
+</div>
+<p>Lista może mieć w sobie elementy różnych typów:</p>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>l2 <span class="op">=</span> [<span class="dv">1</span>, <span class="st">"a"</span>, <span class="st">"0"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Indeksowanie elementów listy</p>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>l2[<span class="dv">0</span>], l2[:], l2[<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<pre><code>(1, [1, 'a', '0'], '0')</code></pre>
+</div>
+</div>
+<p>Z racji, że w liście są elementy które nie wiadomo jak do siebie dodać to <code>sum(l2)</code> <em>rzuci</em> błędem.</p>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(l2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>TypeError: unsupported operand type(s) for +: 'int' and 'str'</code></pre>
+</div>
+</div>
+<p>Dodatkowa uwaga. (Choć nie powinniśmy) to python pozwoli zrobić <code>sum([1, 2.5, 3j])</code>, czyli policzyć sumę listy złożonej z elementów różnych typów.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>l3 <span class="op">=</span> [<span class="dv">1</span>, <span class="fl">2.5</span>, <span class="ot">3j</span>]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> e <span class="kw">in</span> l3:</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Element </span><span class="sc">{</span>e<span class="sc">}</span><span class="ss"> jest typu </span><span class="sc">{</span><span class="bu">type</span>(e)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(l3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Element 1 jest typu &lt;class 'int'&gt;
+Element 2.5 jest typu &lt;class 'float'&gt;
+Element 3j jest typu &lt;class 'complex'&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="1">
+<pre><code>(3.5+3j)</code></pre>
+</div>
+</div>
+<p>Warto pamiętać, że pomnożenie listy przez liczbę <code>int</code> powiela listę.</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">0</span>] <span class="op">*</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>[0, 0, 0, 0, 0]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>] <span class="op">*</span> <span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>[1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3]</code></pre>
+</div>
+</div>
+<p>W tym przypadku warto zauważyć pewną subtelność, która może powodować problemy w przyszłości. Elementami powiększonej listy będę <em>płytkie kopie</em> elementów.</p>
+<p>Przykład więcej pokaże:</p>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>ll <span class="op">=</span> [[]] <span class="op">*</span> <span class="dv">3</span>  <span class="co"># lista z trzema pustymi listami</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>ll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="8">
+<pre><code>[[], [], []]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>ll[<span class="dv">0</span>].append(<span class="dv">42</span>)  <span class="co"># do pierwszej listy dodajemy 42</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>ll[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>[42]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>ll  <span class="co"># okazuje się, że wszystkie listy to tak naprawdę ta sama lista!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="10">
+<pre><code>[[42], [42], [42]]</code></pre>
+</div>
+</div>
+<p>W tym kontekście polecam zapoznać się z tymi dwoma wątkami na Stack Overflow:</p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/1132941/least-astonishment-and-the-mutable-default-argument">least-astonishment-and-the-mutable-default-argument</a></li>
+<li><a href="https://stackoverflow.com/questions/366422/what-is-the-pythonic-way-to-avoid-default-parameters-that-are-empty-lists">what-is-the-pythonic-way-to-avoid-default-parameters-that-are-empty-lists</a></li>
+</ul>
+</section>
+<section id="iterowanie-po-liście" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="iterowanie-po-liście"><span class="header-section-number">1.2</span> Iterowanie po liście</h2>
+<div class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(l)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> e <span class="kw">in</span> l:</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(e<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1, 2, 3]
+1
+4
+9</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, e <span class="kw">in</span> <span class="bu">enumerate</span>(l):</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(i, e<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0 1
+1 4
+2 9</code></pre>
+</div>
+</div>
+<p>Warto zaprzyjaźniać się z <em>list comprehension</em>, jest niezwykle przydatne.</p>
+<div class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>l3 <span class="op">=</span> [i<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>l3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="13">
+<pre><code>[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</code></pre>
+</div>
+</div>
+</section>
+<section id="indeksowanie-listy" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="indeksowanie-listy"><span class="header-section-number">1.3</span> Indeksowanie listy</h2>
+<p>Elementy od trzeciego do końca listy</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>l3[<span class="dv">2</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>[4, 9, 16, 25, 36, 49, 64, 81]</code></pre>
+</div>
+</div>
+<p>Elementy o indeksach od dwa (włącznie) do trzy (wyłącznie). Warto zwrócić uwagę, że ponieważ indeksowanie <code>l[i:j]</code> zwraca listę to dostajemy <strong>listę</strong> jedno elementową, a nie pojedynczy element <code>l3[2]</code>.</p>
+<div class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>l3[<span class="dv">2</span>:<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>[4]</code></pre>
+</div>
+</div>
+<p>W pythonie istnieją indeksy ujemne, idą od końca. W tym przypadku dostaniemy całą listę oprócz ostatniego elementu.</p>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>l3[:<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="16">
+<pre><code>[0, 1, 4, 9, 16, 25, 36, 49, 64]</code></pre>
+</div>
+</div>
+<p>Warto pomijać redundantne indeksy jak w przypadku poniżej gdzie chcemy wziąć elementy o indeksach mniejszych od 4.</p>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>l3[<span class="dv">0</span>:<span class="dv">4</span>] <span class="op">==</span> l3[:<span class="dv">4</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p>Domyśle indeksowanie pozwala również na branie co któregoś elementu oraz na odwracanie listy.</p>
+<div class="cell" data-execution_count="18">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>l3[::<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="18">
+<pre><code>[0, 4, 16, 36, 64]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="19">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>l3[<span class="dv">3</span>:<span class="dv">8</span>:<span class="dv">2</span>]  <span class="co"># Od elementu o indeksie do elementu o indeksie mniejszym od 8, co dwa czyli indeksy 3, 5, 7</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="19">
+<pre><code>[9, 25, 49]</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>l3[::<span class="op">-</span><span class="dv">1</span>]  <span class="co"># Wszystkie elementy co -1 czyli odwrócenie listy.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="20">
+<pre><code>[81, 64, 49, 36, 25, 16, 9, 4, 1, 0]</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="numpy" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Numpy</h1>
+<p>Przypomnieliśmy sobie działanie list w pythonie. W numpy’u podstawową <em>jednostką</em> na jakiej będziemy operować jest <code>np.ndarray</code>, czyli <em>n-dimensional array</em>. Możemy więc myśleć o <code>ndarray</code>’u jak o n-wymiarowej tablicy/wektorze. Dla <span class="math inline">\(n=1\)</span> będzie to wektor, a dla <span class="math inline">\(n=2\)</span> macierz. W ogólności takie twory nazywane są z reguły <strong>tensorami</strong>, ale my będziemy nazywać je arrayami, bo z tą nazwą spotkacie się częściej.</p>
+<p>Za każdym razem gdy masz jakiś problem, zanim napiszesz na Slacku, pogoogluj. Prawdopodobnie na stack’u (StackOverflow) ktoś już miał to pytanie… Przykładowe frazy do googla:</p>
+<ul>
+<li><em>concat array horizontally numpy</em></li>
+<li><em>reverse sort numpy</em></li>
+<li><em>add dimension in front numpy</em></li>
+<li><em>zeros bool array numba</em></li>
+</ul>
+<section id="podstawowe-tworzenie-i-indeksowanie-arrayi" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="podstawowe-tworzenie-i-indeksowanie-arrayi"><span class="header-section-number">2.1</span> Podstawowe tworzenie i indeksowanie array’i</h2>
+<p>Na początku zobaczymy, że wszystko co znamy z list tutaj również zadziała.</p>
+<p><a href="https://numpy.org/doc/stable/user/basics.creation.html">Dodatkowo patrz tworzenie array’i</a></p>
+<p><img src="images/import_numpy.png" class="img-fluid"></p>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="339">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])  <span class="co"># w ten sposób tworzymy array na podstawie pythonowej listy</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="339">
+<pre><code>array([1, 2, 3])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">0</span>], x[<span class="op">-</span><span class="dv">1</span>], <span class="bu">len</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>(1, 3, 3)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">1</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>array([2, 3])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span>:]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<pre><code>array([3])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>x[::<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
+<pre><code>array([3, 2, 1])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="340">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="kw">in</span> x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="340">
+<pre><code>True</code></pre>
+</div>
+</div>
+</section>
+<section id="przydatne-pola" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="przydatne-pola"><span class="header-section-number">2.2</span> Przydatne pola</h2>
+<p>Array ma też kilka przydatnych pól:</p>
+<div class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>x.dtype, x.ndim  <span class="co"># typ danych w array'u oraz liczba wymiarów</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<pre><code>(dtype('int64'), 1)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ilość elementów listy w każdym z wymiarów</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="co"># zwróć uwagę, że jest to krotka jednoelementowa</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>x.shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="28">
+<pre><code>(3,)</code></pre>
+</div>
+</div>
+</section>
+<section id="przypadek-wielowymiarowy" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="przypadek-wielowymiarowy"><span class="header-section-number">2.3</span> Przypadek wielowymiarowy</h2>
+<p>Teraz stwórzmy array dwuwymiarowy przez wykorzystanie funkcji <a href="https://numpy.org/doc/stable/reference/generated/numpy.reshape.html">reshape</a>.</p>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>lr <span class="op">=</span> <span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">12</span>))</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array(lr)</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<pre><code>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])</code></pre>
+</div>
+</div>
+<p>Zwróć uwagę, że docelowe wymiary podajemy jako krotkę</p>
+<div class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>a2 <span class="op">=</span> a.reshape((<span class="dv">3</span>, <span class="dv">4</span>))</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>a2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<pre><code>array([[ 0,  1,  2,  3],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11]])</code></pre>
+</div>
+</div>
+<p>Wywołanie metody <code>reshape</code> na <code>a</code> nie zmienia go:</p>
+<div class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<pre><code>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>a2[<span class="dv">0</span>, :]  <span class="co"># pierwszy wiersz</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<pre><code>array([0, 1, 2, 3])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>a2[<span class="dv">0</span>, :]  <span class="co"># pierwsza kolumna</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<pre><code>array([0, 1, 2, 3])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>a2[<span class="dv">2</span>, <span class="dv">3</span>]  <span class="co"># Element z 3-go wiersza i 4-tej kolumny</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<pre><code>11</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>a2[:, ::<span class="dv">2</span>]  <span class="co"># wszystkie wiersze i co druga kolumna</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="35">
+<pre><code>array([[ 0,  2],
+       [ 4,  6],
+       [ 8, 10]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>a2[:, <span class="dv">1</span>::<span class="dv">2</span>]  <span class="co"># wszystkie wiersze i co druga kolumna od tej o indeksie 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
+<pre><code>array([[ 1,  3],
+       [ 5,  7],
+       [ 9, 11]])</code></pre>
+</div>
+</div>
+</section>
+<section id="typowe-sposoby-tworzenia-arrayi" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="typowe-sposoby-tworzenia-arrayi"><span class="header-section-number">2.4</span> Typowe sposoby tworzenia array’i</h2>
+<p>W praktyce rzadko kiedy tworzymy array’e z list pythonowych, bo to oznacza, że najpierw musimy stworzyć listę, żeby dopiero później zamienić ją na array.</p>
+<p>Teraz poznamy najczęściej używane funkcje do tworzenia array’i.</p>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>np.zeros((<span class="dv">2</span>, <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<pre><code>array([[0., 0., 0., 0.],
+       [0., 0., 0., 0.]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="39">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>np.ones((<span class="dv">2</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="39">
+<pre><code>array([[1., 1., 1.],
+       [1., 1., 1.]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">10</span>)  <span class="co"># zwróć uwagę, że w ostatnia liczba jest mniejsza od 10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="40">
+<pre><code>array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">10</span>).reshape((<span class="dv">2</span>, <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
+<pre><code>array([[0, 1, 2, 3, 4],
+       [5, 6, 7, 8, 9]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">2</span>, <span class="dv">10</span>, <span class="dv">3</span>)  <span class="co"># od, do, co ile</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="42">
+<pre><code>array([2, 5, 8])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">0</span>, <span class="dv">5</span>)  <span class="co"># koniec jest również _włączony_</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="43">
+<pre><code>array([0.        , 0.10204082, 0.20408163, 0.30612245, 0.40816327,
+       0.51020408, 0.6122449 , 0.71428571, 0.81632653, 0.91836735,
+       1.02040816, 1.12244898, 1.2244898 , 1.32653061, 1.42857143,
+       1.53061224, 1.63265306, 1.73469388, 1.83673469, 1.93877551,
+       2.04081633, 2.14285714, 2.24489796, 2.34693878, 2.44897959,
+       2.55102041, 2.65306122, 2.75510204, 2.85714286, 2.95918367,
+       3.06122449, 3.16326531, 3.26530612, 3.36734694, 3.46938776,
+       3.57142857, 3.67346939, 3.7755102 , 3.87755102, 3.97959184,
+       4.08163265, 4.18367347, 4.28571429, 4.3877551 , 4.48979592,
+       4.59183673, 4.69387755, 4.79591837, 4.89795918, 5.        ])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>np.linspace(<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
+<pre><code>array([0.  , 1.25, 2.5 , 3.75, 5.  ])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="45">
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]).repeat(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="45">
+<pre><code>array([1, 1, 1, 2, 2, 2, 3, 3, 3])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>np.tile(np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>]), <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<pre><code>array([1, 2, 3, 1, 2, 3, 1, 2, 3])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>np.random.rand(<span class="dv">10</span>)  <span class="co"># 10 liczb losowych z przedziału [0, 1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="47">
+<pre><code>array([0.27225773, 0.89571791, 0.27728796, 0.91181094, 0.83021544,
+       0.36726848, 0.93491588, 0.31948831, 0.28517844, 0.2008501 ])</code></pre>
+</div>
+</div>
+</section>
+<section id="typy-elementów-w-arrayu" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="typy-elementów-w-arrayu"><span class="header-section-number">2.5</span> Typy elementów w array’u</h2>
+<p>Choć nie padło to jeszcze wprost to widać, że wszystkie elementy array’a <strong>są tego samego typu</strong>, a przez to zajmuje tyle samo miejsca na dysku. Jeżeli bardzo się postaramy to może to być najogólniejszy typ <code>object</code>, który trzyma referencje do obiektów, ale z reguły oznacza to, że gdzieś popełniliśmy błąd, przykład niżej.</p>
+<p>Poniżej przykłady jak zmieniać typ array’a bądź wybrać go przy tworzeniu. Z reguły domyślnie jest to <code>int</code>, bądź <code>float</code>. Kropeczka przy liczbie zawsze oznacza zmiennoprzecinkowość.</p>
+<p><a href="https://numpy.org/doc/stable/user/basics.types.html">Patrz dtype, czyli data types</a></p>
+<div class="cell" data-execution_count="245">
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>(np.zeros(<span class="dv">3</span>), </span>
+<span id="cb106-2"><a href="#cb106-2" aria-hidden="true" tabindex="-1"></a>np.zeros(<span class="dv">3</span>, dtype<span class="op">=</span><span class="bu">int</span>), </span>
+<span id="cb106-3"><a href="#cb106-3" aria-hidden="true" tabindex="-1"></a>np.zeros(<span class="dv">3</span>, dtype<span class="op">=</span><span class="bu">bool</span>), </span>
+<span id="cb106-4"><a href="#cb106-4" aria-hidden="true" tabindex="-1"></a>np.zeros(<span class="dv">3</span>, dtype<span class="op">=</span>np.uint16), </span>
+<span id="cb106-5"><a href="#cb106-5" aria-hidden="true" tabindex="-1"></a>np.zeros(<span class="dv">3</span>, dtype<span class="op">=</span><span class="bu">complex</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="245">
+<pre><code>(array([0., 0., 0.]),
+ array([0, 0, 0]),
+ array([False, False, False]),
+ array([0, 0, 0], dtype=uint16),
+ array([0.+0.j, 0.+0.j, 0.+0.j]))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="273">
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.zeros(<span class="dv">3</span>)</span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">12</span></span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>x[<span class="dv">2</span>] <span class="op">=</span> <span class="op">-</span><span class="dv">1</span></span>
+<span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a>x.astype(np.float16)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="273">
+<pre><code>array([12.,  0., -1.], dtype=float16)</code></pre>
+</div>
+</div>
+<p>Znowu, oryginalny <code>x</code> nie został zmodyfikowany.</p>
+<div class="cell" data-execution_count="275">
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="275">
+<pre><code>array([12.,  0., -1.])</code></pre>
+</div>
+</div>
+<p>Zwróć uwagę, że takie działanie może powodować <a href="https://pl.wikipedia.org/wiki/Przekroczenie_zakresu_liczb_ca%C5%82kowitych">klasyczny overflow</a>!</p>
+<div class="cell" data-execution_count="272">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>x.astype(np.uint8)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="272">
+<pre><code>array([ 12,   0, 255], dtype=uint8)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="280">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="fl">1e100</span>])</span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a>x, x.astype(np.float16)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="280">
+<pre><code>(array([1.e+100]), array([inf], dtype=float16))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="334">
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>np.array([<span class="st">"ala"</span>, <span class="dv">2</span>, <span class="bu">int</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="334">
+<pre><code>array(['ala', 2, &lt;class 'int'&gt;], dtype=object)</code></pre>
+</div>
+</div>
+</section>
+<section id="nibyliczby-specjalne" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="nibyliczby-specjalne"><span class="header-section-number">2.6</span> Nibyliczby specjalne</h2>
+<p>Warto wiedzieć, że taki powyższy <code>np.inf</code> (ang. infinity) też jest liczbą tylko specjalną. Oprócz niego jest jeszcze <code>np.nan</code> czyli <em>not a number</em>. W ogólności jest to część standardu IEEE 754 mówiącego o tym jak powinny zachowywać się liczby zmiennoprzecinkowe. Takie same zachowania dostaniesz w każdym innym języku programowania (no tak mniej więcej).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.inf</span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>a, a<span class="op">*</span><span class="dv">5</span>, a<span class="op">-</span><span class="dv">4</span>, a<span class="op">*</span><span class="dv">0</span>, <span class="op">-</span>a, a<span class="op">+</span><span class="dv">2</span>, a<span class="op">-</span>a</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="292">
+<pre><code>(inf, inf, inf, nan, -inf, inf, nan)</code></pre>
+</div>
+</div>
+<p><strong>Uwaga!!!</strong> Nan nanowi nie równy</p>
+<p>[Tu miał być mem z kaszką NAN ale nes*** nie wyszło z Ukrainy]</p>
+<div class="cell" data-execution_count="338">
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>np.nan <span class="op">==</span> np.nan, np.nan <span class="op">!=</span> np.nan, np.nan <span class="op">&lt;</span> np.nan, np.nan <span class="op">&gt;=</span> np.nan</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="338">
+<pre><code>(False, True, False, False)</code></pre>
+</div>
+</div>
+</section>
+<section id="arraye-z-napisami" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="arraye-z-napisami"><span class="header-section-number">2.7</span> Array’e z napisami</h2>
+<p>Przykład poniżej. Zwróć uwagę, na <code>dtype='&lt;U4'</code>. Oznacza to stringa o długości 4 lub mniej. Oznacza to, że każdy element array’a zabiera tyle miejsca co string o długości 4. Z reguły jest to pożądane, bo na takich obiektach dobrze się komputerowi operuje, ale czasem gdy będziemy array stringów o długości 2-5 z jednym o długości 10000 znaków, wszystkie zaczną zajmować tyle miejsca co najdłuższy!!!</p>
+<div class="cell" data-execution_count="249">
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>vala <span class="op">=</span> np.array([<span class="st">"Ala"</span>, <span class="st">"ma"</span>, <span class="st">"kota"</span>])</span>
+<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a>vala</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="249">
+<pre><code>array(['Ala', 'ma', 'kota'], dtype='&lt;U4')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="263">
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tylko ostatni element jest inny</span></span>
+<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a>vala1 <span class="op">=</span> np.array([<span class="st">"Ala"</span>, <span class="st">"ma"</span>, <span class="st">"kota"</span>] <span class="op">*</span> <span class="dv">100</span>)</span>
+<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a>vala2 <span class="op">=</span> np.array([<span class="st">"Ala"</span>, <span class="st">"ma"</span>, <span class="st">"kota"</span>] <span class="op">*</span> <span class="dv">99</span> <span class="op">+</span> [<span class="st">"Ala"</span>, <span class="st">"ma"</span>, <span class="st">"kotaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"</span>])</span>
+<span id="cb124-4"><a href="#cb124-4" aria-hidden="true" tabindex="-1"></a>np.array_equal(vala1[:<span class="op">-</span><span class="dv">1</span>], vala2[:<span class="op">-</span><span class="dv">1</span>]), vala1[<span class="op">-</span><span class="dv">1</span>] <span class="op">==</span> vala2[<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="263">
+<pre><code>(True, False)</code></pre>
+</div>
+</div>
+<p>Rozmiar pojedynczego elementu oraz rozmiar całej tablicy w pamięci:</p>
+<div class="cell" data-execution_count="264">
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a>vala1.itemsize, vala1.itemsize <span class="op">*</span> vala1.size</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="264">
+<pre><code>(16, 4800)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="265">
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a>vala2.itemsize, vala2.itemsize <span class="op">*</span> vala2.size</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="265">
+<pre><code>(128, 38400)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="266">
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="dv">38400</span> <span class="op">/</span> <span class="dv">4800</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="266">
+<pre><code>8.0</code></pre>
+</div>
+</div>
+<p>Drugi array zajmuje 8 razy więcej miejsca, mimo różnicy tylko w jednym elemencie!</p>
+</section>
+<section id="operacje-na-arrayach" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="operacje-na-arrayach"><span class="header-section-number">2.8</span> Operacje na array’ach</h2>
+<p>Ok, umiemy tworzyć i indeksować array’e, ale po co? Otóż żeby coś na nich liczyć!</p>
+<p>To co odróżnia array’e od list to ich <strong>zwektoryzowanie</strong>! To oznacza, że zapominamy o pętlach i od teraz dokonujemy operacji na całych array’ach!</p>
+<div class="cell" data-execution_count="315">
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">4</span>)</span>
+<span id="cb132-2"><a href="#cb132-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="315">
+<pre><code>array([0, 1, 2, 3])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="316">
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">*</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="316">
+<pre><code>array([0, 2, 4, 6])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="317">
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">**</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="317">
+<pre><code>array([0, 1, 4, 9])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="318">
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>np.sin(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="318">
+<pre><code>array([0.        , 0.84147098, 0.90929743, 0.14112001])</code></pre>
+</div>
+</div>
+<p>Co ważne (z punktu widzenia wydajności) to array’e numpy’owe <em>żyją</em> jako tablice w C. Wykonanie operacji <code>y = x * 2</code> oznacza wymnożenie tablicy przez 2 w C i dopiero później przekazanie wyniku do pythona.</p>
+<p>Dzięki temu numpy jest równie szybki jakby napisać:</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode c code-with-copy"><code class="sourceCode c"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> x<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb140-2"><a href="#cb140-2" aria-hidden="true" tabindex="-1"></a><span class="dt">int</span> y<span class="op">[</span><span class="dv">10</span><span class="op">];</span></span>
+<span id="cb140-3"><a href="#cb140-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span><span class="dv">10</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb140-4"><a href="#cb140-4" aria-hidden="true" tabindex="-1"></a>    x<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> i<span class="op">;</span></span>
+<span id="cb140-5"><a href="#cb140-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> <span class="op">(</span><span class="dt">int</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i<span class="op">&lt;</span><span class="dv">10</span><span class="op">;</span> i<span class="op">++)</span></span>
+<span id="cb140-6"><a href="#cb140-6" aria-hidden="true" tabindex="-1"></a>    y<span class="op">[</span>i<span class="op">]</span> <span class="op">=</span> x<span class="op">[</span>i<span class="op">]</span> <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Tylko <em>troszkę</em> bardziej przyjemny w obsłudze :)</p>
+<p><img src="images/cpp_numpy.jpg" class="img-fluid"></p>
+<p><img src="images/behind_scenes.webp" class="img-fluid"></p>
+<div class="cell" data-execution_count="319">
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">1</span>])</span>
+<span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a>x, y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="319">
+<pre><code>(array([0, 1, 2, 3]), array([4, 1, 2, 1]))</code></pre>
+</div>
+</div>
+<p>Mnożenie element po elemencie dwóch wektorów jest bajecznie proste:</p>
+<div class="cell" data-execution_count="323">
+<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a>x<span class="op">*</span>y, x<span class="op">/</span>y, x<span class="op">+</span>y, x<span class="op">-</span>y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="323">
+<pre><code>(array([0, 1, 4, 3]),
+ array([0., 1., 1., 3.]),
+ array([4, 2, 4, 4]),
+ array([-4,  0,  0,  2]))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="324">
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">%</span> <span class="dv">2</span>  <span class="co"># reszta z dzielenia przez 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="324">
+<pre><code>array([0, 1, 0, 1])</code></pre>
+</div>
+</div>
+<p>Podobnie jak zadanie</p>
+<blockquote class="blockquote">
+<p>Dla wektorów x i y znajdź maksymalną wartość kwadratu sinusa ich iloczynu element po elemencie</p>
+</blockquote>
+<div class="cell" data-execution_count="54">
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a>z1 <span class="op">=</span> x <span class="op">*</span> y  <span class="co"># iloczyn element po elemencie</span></span>
+<span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a>z2 <span class="op">=</span> np.sin(z1)  <span class="co"># sinus iloczynu</span></span>
+<span id="cb147-3"><a href="#cb147-3" aria-hidden="true" tabindex="-1"></a>z3 <span class="op">=</span> z2 <span class="op">**</span> <span class="dv">2</span>  <span class="co"># jego kwadrat</span></span>
+<span id="cb147-4"><a href="#cb147-4" aria-hidden="true" tabindex="-1"></a>z4 <span class="op">=</span> np.<span class="bu">max</span>(z3)  <span class="co"># maksymalny element array'a</span></span>
+<span id="cb147-5"><a href="#cb147-5" aria-hidden="true" tabindex="-1"></a>z4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="54">
+<pre><code>0.7080734182735712</code></pre>
+</div>
+</div>
+<p>Oczywiście można to zrobić w jednej linijce</p>
+<div class="cell" data-execution_count="55">
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a>(np.sin(x <span class="op">*</span> y) <span class="op">**</span> <span class="dv">2</span>).<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="55">
+<pre><code>0.7080734182735712</code></pre>
+</div>
+</div>
+</section>
+<section id="operacje-logiczne" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="operacje-logiczne"><span class="header-section-number">2.9</span> Operacje logiczne</h2>
+<p>Podobnie jak powyżej, te też są zwektoryzowane!</p>
+<div class="cell" data-execution_count="217">
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a>x, x <span class="op">&gt;</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="217">
+<pre><code>(array([0, 1, 2, 3]), array([False, False,  True,  True]))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="218">
+<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">!=</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="218">
+<pre><code>array([ True, False,  True,  True])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="219">
+<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">==</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="219">
+<pre><code>array([False, False, False,  True])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="225">
+<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a>xb1 <span class="op">=</span> np.array([<span class="va">True</span>, <span class="va">False</span>, <span class="va">False</span>, <span class="va">True</span>, <span class="va">True</span>])</span>
+<span id="cb157-2"><a href="#cb157-2" aria-hidden="true" tabindex="-1"></a>xb1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="225">
+<pre><code>array([ True, False, False,  True,  True])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="226">
+<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="op">~</span>xb1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="226">
+<pre><code>array([False,  True,  True, False, False])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="227">
+<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a>xb2 <span class="op">=</span> np.array([<span class="va">True</span>, <span class="va">False</span>, <span class="va">True</span>, <span class="va">False</span>, <span class="va">True</span>])</span>
+<span id="cb161-2"><a href="#cb161-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Logiczne i</span></span>
+<span id="cb161-3"><a href="#cb161-3" aria-hidden="true" tabindex="-1"></a>xb1 <span class="op">&amp;</span> xb2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="227">
+<pre><code>array([ True, False, False, False,  True])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="229">
+<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Logiczne lub</span></span>
+<span id="cb163-2"><a href="#cb163-2" aria-hidden="true" tabindex="-1"></a>xb1 <span class="op">|</span> xb2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="229">
+<pre><code>array([ True, False,  True,  True,  True])</code></pre>
+</div>
+</div>
+<p>Zwróć szczególną uwagę gdy łączysz <code>!=</code> / <code>==</code> itp. z <code>&amp;</code>/<code>|</code>!!! Trzeba dostawiać nawiasy dookoła <code>!=</code> / <code>==</code> itp.</p>
+<p>Jest to spowodowane priorytetem operatorów, trochę tak jak trzeba dostawić nawias, żeby <span class="math inline">\(2 + 2 * 2 == 8\)</span></p>
+<div class="cell" data-execution_count="233">
+<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">&gt;</span> <span class="dv">1</span> <span class="op">&amp;</span> x <span class="op">&lt;</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="234">
+<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a>(x <span class="op">&gt;</span> <span class="dv">1</span>) <span class="op">&amp;</span> (x <span class="op">&lt;</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="234">
+<pre><code>array([False, False,  True, False])</code></pre>
+</div>
+</div>
+</section>
+<section id="operacje-macierzowe" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="operacje-macierzowe"><span class="header-section-number">2.10</span> Operacje macierzowe</h2>
+<p>Skoro <code>x * y</code> mnoży wektory element po elemencie to w jaki sposób w numpy’u reprezentowane jest mnożenie wektorowe?</p>
+<div class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a>x, y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="58">
+<pre><code>(array([0, 1, 2, 3]), array([4, 1, 2, 1]))</code></pre>
+</div>
+</div>
+<p>Iloczyn skalarny:</p>
+<p>Zwróć uwagę na to, że numpy nie jest za bardzo <em>strict</em> jak chodzi o pionowość/poziomość wektorów w tym przypadku. W wielu językach (i matematyce) żeby ta operacja miała sens to <span class="math inline">\(y\)</span> powinien być wektorem pionowym</p>
+<div class="cell" data-execution_count="60">
+<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">@</span> y <span class="op">==</span> (x <span class="op">*</span> y).<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="60">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="329">
+<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a>M1 <span class="op">=</span> np.arange(<span class="dv">12</span>).reshape((<span class="dv">3</span>, <span class="dv">4</span>))</span>
+<span id="cb173-2"><a href="#cb173-2" aria-hidden="true" tabindex="-1"></a>v1 <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Gdy <em>ma to sens</em> numpy wymnoży każdy wiersz macierzy przez drugi array, tak długo jak mają odpowiednie rozmiary. <a href="https://numpy.org/doc/stable/user/basics.broadcasting.html">Patrz broadcasting</a></p>
+<div class="cell" data-execution_count="332">
+<div class="sourceCode cell-code" id="cb174"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a>M1 <span class="op">*</span> v1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="332">
+<pre><code>array([[ 0,  1,  4,  9],
+       [ 0,  5, 12, 21],
+       [ 0,  9, 20, 33]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="330">
+<div class="sourceCode cell-code" id="cb176"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb176-1"><a href="#cb176-1" aria-hidden="true" tabindex="-1"></a>M1 <span class="op">@</span> v1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="330">
+<pre><code>array([14, 38, 62])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="331">
+<div class="sourceCode cell-code" id="cb178"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb178-1"><a href="#cb178-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="op">@</span> M1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) (size 3 is different from 4)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb180"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb180-1"><a href="#cb180-1" aria-hidden="true" tabindex="-1"></a>M2 <span class="op">=</span> np.arange(<span class="dv">9</span>).reshape((<span class="dv">3</span>, <span class="dv">3</span>))</span>
+<span id="cb180-2"><a href="#cb180-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="82">
+<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a>v2 <span class="op">@</span> M2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="82">
+<pre><code>array([15, 18, 21])</code></pre>
+</div>
+</div>
+<p>Nie zawsze jednak numpy łyknie co popadnie i aż takich herezji uprawiać nie można:</p>
+<div class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a>v2.reshape((<span class="dv">3</span>, <span class="dv">1</span>)) <span class="op">@</span> M2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>ValueError: matmul: Input operand 1 has a mismatch in its core dimension 0, with gufunc signature (n?,k),(k,m?)-&gt;(n?,m?) (size 3 is different from 1)</code></pre>
+</div>
+</div>
+<p>Poniższa operacja nie ma sensu w matematyce. Wynikiem jest matematyczne <span class="math inline">\(v_2 M_2 v_2^T\)</span>.</p>
+<p><span class="math display">\[
+x = [12, 42, 32, 41]
+M =
+\]</span></p>
+<div class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb185"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb185-1"><a href="#cb185-1" aria-hidden="true" tabindex="-1"></a>v2 <span class="op">@</span> M2 <span class="op">@</span> v2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="86">
+<pre><code>60</code></pre>
+</div>
+</div>
+<p>Czasem potrafi powodować to dziwne i nieoczekiwane problemy…</p>
+</section>
+<section id="łączenie-arrayów" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="łączenie-arrayów"><span class="header-section-number">2.11</span> Łączenie array’ów</h2>
+<p>Nie jest niczym wymyślnym żeby chcieć połączyć ze sobą dwa array’e, zobacz poniżej jak możesz to zrobić.</p>
+<div class="cell" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb187"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb187-1"><a href="#cb187-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>])</span>
+<span id="cb187-2"><a href="#cb187-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
+<span id="cb187-3"><a href="#cb187-3" aria-hidden="true" tabindex="-1"></a>np.hstack([x1, x2])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="97">
+<pre><code>array([0, 1, 2, 3, 4, 5])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="98">
+<div class="sourceCode cell-code" id="cb189"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb189-1"><a href="#cb189-1" aria-hidden="true" tabindex="-1"></a>np.vstack([x1, x2])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="98">
+<pre><code>array([[0, 1, 2],
+       [3, 4, 5]])</code></pre>
+</div>
+</div>
+<p>W machine learningu przydatne jest również łączenie po konkretnym wymiarze. Często operując na obrazkach mamy jeden tensor z wieloma obrazkami i wtedy mówimy o 4 wymiarach <code>(B, C, H, W)</code>:</p>
+<ul>
+<li>B – ilość obrazków w tzw. batchu</li>
+<li>C – ilość kanałów, z reguły 3 dla RGB, 1 dla czarno-białych obrazków, 4 dla obrazków z przeźroczystością. Co ciekawe zdjęcia satelitarne często mają jeszcze więcej kanałów.</li>
+<li>H – wysokość obrazka</li>
+<li>W – szerokość obrazka</li>
+</ul>
+<p>Warto zauważyć, że wszystkie obrazki muszą mieć wtedy stały rozmiar, wrócimy do tego na 4. spotkaniu.</p>
+<div class="cell" data-execution_count="102">
+<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a>M1 <span class="op">=</span> np.arange(<span class="dv">9</span>).reshape((<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">1</span>))</span>
+<span id="cb191-2"><a href="#cb191-2" aria-hidden="true" tabindex="-1"></a>M2 <span class="op">=</span> np.arange(<span class="dv">9</span>, <span class="dv">18</span>).reshape((<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">9</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="105">
+<div class="sourceCode cell-code" id="cb192"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a>np.concatenate((M1, M2), axis<span class="op">=</span><span class="dv">0</span>).shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="105">
+<pre><code>(2, 1, 9, 1)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="106">
+<div class="sourceCode cell-code" id="cb194"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a>np.concatenate((M1, M2), axis<span class="op">=</span><span class="dv">1</span>).shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="106">
+<pre><code>(1, 2, 9, 1)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="107">
+<div class="sourceCode cell-code" id="cb196"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a>np.concatenate((M1, M2), axis<span class="op">=</span><span class="dv">2</span>).shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="107">
+<pre><code>(1, 1, 18, 1)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="108">
+<div class="sourceCode cell-code" id="cb198"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a>np.concatenate((M1, M2), axis<span class="op">=</span><span class="dv">3</span>).shape</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="108">
+<pre><code>(1, 1, 9, 2)</code></pre>
+</div>
+</div>
+</section>
+<section id="metody-na-arrayach" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="metody-na-arrayach"><span class="header-section-number">2.12</span> Metody na array’ach</h2>
+<p>Jak możesz zauważyć powyżej, zamiast pisać <code>np.max(x)</code>, napisałem <code>x.max()</code> korzystając z obiektowości pythona. Poniżej pokażę kilka z dostępnych metod array’a.</p>
+<div class="cell" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb200"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a>a2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="86">
+<pre><code>array([[ 0,  1,  2,  3],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb202"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a>a2.<span class="bu">min</span>(), a2.<span class="bu">max</span>(), a2.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="85">
+<pre><code>(0, 11, 66)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="95">
+<div class="sourceCode cell-code" id="cb204"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a>xr <span class="op">=</span> np.random.rand(<span class="dv">10</span>) </span>
+<span id="cb204-2"><a href="#cb204-2" aria-hidden="true" tabindex="-1"></a>xr</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="95">
+<pre><code>array([0.87781037, 0.113456  , 0.50450939, 0.58057078, 0.8142745 ,
+       0.14710039, 0.87851427, 0.05888521, 0.23022626, 0.49400793])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="96">
+<div class="sourceCode cell-code" id="cb206"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb206-1"><a href="#cb206-1" aria-hidden="true" tabindex="-1"></a>xr.argmin(), xr.argmax()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="96">
+<pre><code>(7, 6)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb208"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb208-1"><a href="#cb208-1" aria-hidden="true" tabindex="-1"></a>xr.<span class="bu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="97">
+<pre><code>array([0.88, 0.11, 0.5 , 0.58, 0.81, 0.15, 0.88, 0.06, 0.23, 0.49])</code></pre>
+</div>
+</div>
+<p>Dodatkowo wiele z tych operacji posiada parametr <code>axis</code> który pozwala wybrać oś względem której dokonana ma być operacja. W przypadku macierzy możemy wybrać czy chcemy policzyć sumę po całości <code>axis=None</code> (domyślnie), czy po kolumnach <code>axis=0</code>, czy po wierszach <code>axis=1</code>.</p>
+<div class="cell" data-execution_count="104">
+<div class="sourceCode cell-code" id="cb210"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb210-1"><a href="#cb210-1" aria-hidden="true" tabindex="-1"></a>a2.<span class="bu">min</span>(axis<span class="op">=</span><span class="dv">0</span>), a2.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">0</span>), a2.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="104">
+<pre><code>(array([0, 1, 2, 3]), array([ 8,  9, 10, 11]), array([12, 15, 18, 21]))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="105">
+<div class="sourceCode cell-code" id="cb212"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb212-1"><a href="#cb212-1" aria-hidden="true" tabindex="-1"></a>a2.<span class="bu">min</span>(axis<span class="op">=</span><span class="dv">1</span>), a2.<span class="bu">max</span>(axis<span class="op">=</span><span class="dv">1</span>), a2.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="105">
+<pre><code>(array([0, 4, 8]), array([ 3,  7, 11]), array([ 6, 22, 38]))</code></pre>
+</div>
+</div>
+</section>
+<section id="operacje-na-arrayach-boolowych" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="operacje-na-arrayach-boolowych"><span class="header-section-number">2.13</span> Operacje na array’ach boolowych</h2>
+<p>Okaże się, że bardzo często będziemy korzystać z array’ów boolowych. Warto zwróć szczególną uwagę na takie dwa przypadki:</p>
+<div class="cell" data-execution_count="306">
+<div class="sourceCode cell-code" id="cb214"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb214-1"><a href="#cb214-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.rand(<span class="dv">1000</span>)</span>
+<span id="cb214-2"><a href="#cb214-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x <span class="op">&gt;</span> <span class="fl">0.3</span></span>
+<span id="cb214-3"><a href="#cb214-3" aria-hidden="true" tabindex="-1"></a>y.mean(), y.<span class="bu">sum</span>()  <span class="co"># procent oraz ilość elementów spełniających warunek</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="306">
+<pre><code>(0.693, 693)</code></pre>
+</div>
+</div>
+</section>
+<section id="o-dwóch-sumach" class="level2" data-number="2.14">
+<h2 data-number="2.14" class="anchored" data-anchor-id="o-dwóch-sumach"><span class="header-section-number">2.14</span> O dwóch sumach</h2>
+<p>Wprawne oko zauważy, że najpierw (przy listach) korzystałem z <code>sum</code> wbudowanego w pythona, podczas gdy teraz korzystałem z <code>np.sum</code> lub <code>x.sum()</code>. Jaka jest między różnica? Otóż fundamentalna! Stwórzmy duży array z liczbami losowymi i porównajmy czasy sumowania tymi różnymi metodami.</p>
+<div class="cell" data-execution_count="123">
+<div class="sourceCode cell-code" id="cb216"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb216-1"><a href="#cb216-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">1_000_000</span></span>
+<span id="cb216-2"><a href="#cb216-2" aria-hidden="true" tabindex="-1"></a>x_sum <span class="op">=</span> np.random.rand(n)</span>
+<span id="cb216-3"><a href="#cb216-3" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(x_sum), np.<span class="bu">sum</span>(x_sum), x_sum.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="123">
+<pre><code>(500092.9540528014, 500092.9540528106, 500092.9540528106)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="124">
+<div class="sourceCode cell-code" id="cb218"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb218-1"><a href="#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>timeit <span class="bu">sum</span>(x_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>78.2 ms ± 1.96 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="125">
+<div class="sourceCode cell-code" id="cb220"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb220-1"><a href="#cb220-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>timeit np.<span class="bu">sum</span>(x_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>448 µs ± 14.8 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="126">
+<div class="sourceCode cell-code" id="cb222"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb222-1"><a href="#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>timeit x_sum.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>444 µs ± 18.5 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
+</div>
+</div>
+<p>Jak widzimy wykorzystanie numpy’owego <code>np.sum</code> jest <strong>160 razy szybsze!!!</strong> To nie przypadek. Wbudowane <code>sum(x)</code> działa na pythonowych listach, nie korzystając z tego, że <code>x</code> jest array’em w <code>C</code>. Różnicy pomiędzy <code>np.sum(x)</code> i <code>x.sum()</code> właściwie nie ma i można korzystać z tego które jest dla Ciebie bardziej naturalne, lepiej pasuje do kontekstu.</p>
+<p>Teraz popatrzmy jeszcze co by się stało gdybyśmy samemu napisali funkcję sumującą przy pomocy pętli.</p>
+<div class="cell" data-execution_count="127">
+<div class="sourceCode cell-code" id="cb224"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb224-1"><a href="#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> loop_sum(x):</span>
+<span id="cb224-2"><a href="#cb224-2" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb224-3"><a href="#cb224-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> e <span class="kw">in</span> x:</span>
+<span id="cb224-4"><a href="#cb224-4" aria-hidden="true" tabindex="-1"></a>        c <span class="op">+=</span> e</span>
+<span id="cb224-5"><a href="#cb224-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> c</span>
+<span id="cb224-6"><a href="#cb224-6" aria-hidden="true" tabindex="-1"></a>loop_sum(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="127">
+<pre><code>3.0</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="128">
+<div class="sourceCode cell-code" id="cb226"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb226-1"><a href="#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>timeit loop_sum(x_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>95.2 ms ± 2.37 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)</code></pre>
+</div>
+</div>
+<p>Wynik jest troszkę wolniejszy lecz podobny do <strong>wbudowanego</strong> <code>sum</code>.</p>
+<p><img src="images/voting.png" class="img-fluid"></p>
+</section>
+<section id="dlaczego-różne-sumy-dały-różne-wyniki-czyli-o-precyzji-liczb-zmiennoprzecinkowych" class="level2" data-number="2.15">
+<h2 data-number="2.15" class="anchored" data-anchor-id="dlaczego-różne-sumy-dały-różne-wyniki-czyli-o-precyzji-liczb-zmiennoprzecinkowych"><span class="header-section-number">2.15</span> Dlaczego różne sumy dały różne wyniki czyli o precyzji liczb zmiennoprzecinkowych</h2>
+<p>Czujne oko powinno zauważyć, że suma policzona na różne sposoby daje… różne wyniki. W ogólności w informatyce możemy mówić albo o liczbach całkowitych typu <code>int</code> albo o zmiennoprzecinkowych typu <code>float</code>. Następujące rozważania dotyczą liczb <code>float</code>.</p>
+<div class="cell" data-execution_count="129">
+<div class="sourceCode cell-code" id="cb228"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb228-1"><a href="#cb228-1" aria-hidden="true" tabindex="-1"></a><span class="bu">sum</span>(x_sum) <span class="op">-</span> np.<span class="bu">sum</span>(x_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="129">
+<pre><code>-9.19681042432785e-09</code></pre>
+</div>
+</div>
+<p>Zapis np. <code>3.1415e-3</code> oznacza liczbę <span class="math inline">\(3.1415 \cdot 10^{-3}\)</span> czyli <code>0.0031415</code>, jest to tzw. zapis inżynierski. Ewidentnie widzimy więc, że różnica nie jest 0…</p>
+<p>To tak jakby jakby wynik a + b + c zależał od tego czy policzę (a + b) + c czy a + (b + c).</p>
+<div class="cell" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb230"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb230-1"><a href="#cb230-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="fl">0.1</span></span>
+<span id="cb230-2"><a href="#cb230-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="fl">0.2</span></span>
+<span id="cb230-3"><a href="#cb230-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="op">-</span><span class="fl">0.3</span></span>
+<span id="cb230-4"><a href="#cb230-4" aria-hidden="true" tabindex="-1"></a>(a <span class="op">+</span> b) <span class="op">+</span> c, a <span class="op">+</span> (b <span class="op">+</span> c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="138">
+<pre><code>(5.551115123125783e-17, 2.7755575615628914e-17)</code></pre>
+</div>
+</div>
+<p><img src="images/areyoukidding.gif" class="img-fluid"></p>
+<p>Cóż, dziwne. Otóż może być jeszcze dziwniej.</p>
+<div class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb232"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb232-1"><a href="#cb232-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">+</span> b <span class="op">+</span> c <span class="op">==</span> a <span class="op">+</span> c <span class="op">+</span> b</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="139">
+<pre><code>False</code></pre>
+</div>
+</div>
+<p><img src="images/rly.gif" class="img-fluid"></p>
+<p>No więc o co chodzi? Otóż zmienne typu <code>float</code> w pamięci reprezentowane są analogicznie do wcześniejszego przykładu <span class="math inline">\(3.1415 \cdot 10^{-3}\)</span> z tym że komputer zapisuje jedynie liczby <code>31415</code> oraz <code>-3</code>. Dodatkowo komputer nie operuje na liczbach dziesiętnych tak jak my, a na binarnych zapisując zmienną float jako <span class="math inline">\(M \cdot 2^C\)</span> oraz zapisując znak liczby dodatnia/ujemna.</p>
+<p>Oderwijmy się na chwilę od tego przykładu i pomyślmy ile wynosi dla nas <span class="math inline">\(1/3 \cdot 3\)</span>. No tylko nie możemy korzystać ze zmiennej ułamkowej, a musimy zapisać liczbę z kropką. Mamy więc <span class="math inline">\(0.33333333 \cdot 3\)</span> (więcej trójek nie mieści nam się na kartce). W efekcie dostajemy liczbę <span class="math inline">\(0.99999999 \neq 1\)</span>. Na analogiczny problem natrafia komputer tylko dla niego problematyczne są <span class="math inline">\(0.1, 0.2, 0.3\)</span>, bo operuje w systemie binarnym.</p>
+<p>Jakie są tego konsekwencje? <strong>Nigdy nie porównuj dwóch floatów przez <code>==</code>!!!</strong></p>
+<p>Czemu? No dlatego…</p>
+<div class="cell" data-execution_count="212">
+<div class="sourceCode cell-code" id="cb234"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb234-1"><a href="#cb234-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.2</span> <span class="op">+</span> <span class="fl">0.1</span> <span class="op">==</span> <span class="fl">0.3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="212">
+<pre><code>False</code></pre>
+</div>
+</div>
+<p>Więc jak żyć?</p>
+<p>No tak:</p>
+<div class="cell" data-execution_count="235">
+<div class="sourceCode cell-code" id="cb236"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb236-1"><a href="#cb236-1" aria-hidden="true" tabindex="-1"></a>np.isclose(<span class="fl">0.2</span> <span class="op">+</span> <span class="fl">0.1</span>, <span class="fl">0.3</span>), np.isclose(<span class="bu">sum</span>(x_sum), np.<span class="bu">sum</span>(x_sum))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="235">
+<pre><code>(True, True)</code></pre>
+</div>
+</div>
+<p>Oraz w przypadku wektorowym:</p>
+<div class="cell" data-execution_count="239">
+<div class="sourceCode cell-code" id="cb238"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb238-1"><a href="#cb238-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.rand(<span class="dv">1000</span>)</span>
+<span id="cb238-2"><a href="#cb238-2" aria-hidden="true" tabindex="-1"></a>x2 <span class="op">=</span> (x <span class="op">*</span> x) <span class="op">/</span> x</span>
+<span id="cb238-3"><a href="#cb238-3" aria-hidden="true" tabindex="-1"></a>np.array_equal(x, x2), np.allclose(x, x2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="239">
+<pre><code>(False, True)</code></pre>
+</div>
+</div>
+</section>
+<section id="indeksowanie-odwiedzone-ponownie" class="level2" data-number="2.16">
+<h2 data-number="2.16" class="anchored" data-anchor-id="indeksowanie-odwiedzone-ponownie"><span class="header-section-number">2.16</span> Indeksowanie odwiedzone ponownie</h2>
+<p>Otóż array’e możemy indeksować tak jak listy, ale nie tylko! Możemy je również indeksować innymi array’ami z intami i boolami. Może to brzmieć dziwnie ale spójrz na przykład:</p>
+<p><a href="https://numpy.org/doc/stable/user/basics.indexing.html">Patrz indeksowanie</a></p>
+<div class="cell" data-execution_count="342">
+<div class="sourceCode cell-code" id="cb240"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb240-1"><a href="#cb240-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">42</span>, <span class="dv">1337</span>, <span class="op">-</span><span class="dv">1</span>])</span>
+<span id="cb240-2"><a href="#cb240-2" aria-hidden="true" tabindex="-1"></a>indexer1 <span class="op">=</span> np.array([<span class="va">False</span>, <span class="va">True</span>, <span class="va">True</span>, <span class="va">False</span>])</span>
+<span id="cb240-3"><a href="#cb240-3" aria-hidden="true" tabindex="-1"></a>indexer2 <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">3</span>, <span class="dv">2</span>, <span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="343">
+<div class="sourceCode cell-code" id="cb241"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb241-1"><a href="#cb241-1" aria-hidden="true" tabindex="-1"></a>x[indexer1]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="343">
+<pre><code>array([  42, 1337])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="344">
+<div class="sourceCode cell-code" id="cb243"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb243-1"><a href="#cb243-1" aria-hidden="true" tabindex="-1"></a>x[indexer2]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="344">
+<pre><code>array([  10,   10,   -1, 1337,   42,   -1,   42])</code></pre>
+</div>
+</div>
+<p>Pozwala to na bardzo ciekawe <em>combosy</em> jak na przykład:</p>
+<div class="cell" data-execution_count="202">
+<div class="sourceCode cell-code" id="cb245"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb245-1"><a href="#cb245-1" aria-hidden="true" tabindex="-1"></a>M <span class="op">=</span> np.random.rand(<span class="dv">20</span>).reshape((<span class="dv">5</span>, <span class="dv">4</span>))</span>
+<span id="cb245-2"><a href="#cb245-2" aria-hidden="true" tabindex="-1"></a>M</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="202">
+<pre><code>array([[0.28190705, 0.92606696, 0.86188106, 0.54994953],
+       [0.0354205 , 0.48599393, 0.11976321, 0.33515079],
+       [0.99036485, 0.49357888, 0.35204374, 0.29363361],
+       [0.28671393, 0.60482439, 0.47952697, 0.57959521],
+       [0.05868786, 0.3286742 , 0.4599026 , 0.94045514]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="207">
+<div class="sourceCode cell-code" id="cb247"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb247-1"><a href="#cb247-1" aria-hidden="true" tabindex="-1"></a>indexer <span class="op">=</span> M <span class="op">&gt;</span> <span class="fl">0.3</span></span>
+<span id="cb247-2"><a href="#cb247-2" aria-hidden="true" tabindex="-1"></a>indexer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="207">
+<pre><code>array([[False,  True,  True,  True],
+       [False,  True, False,  True],
+       [ True,  True,  True, False],
+       [False,  True,  True,  True],
+       [False,  True,  True,  True]])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="208">
+<div class="sourceCode cell-code" id="cb249"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb249-1"><a href="#cb249-1" aria-hidden="true" tabindex="-1"></a>M[indexer]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="208">
+<pre><code>array([0.92606696, 0.86188106, 0.54994953, 0.48599393, 0.33515079,
+       0.99036485, 0.49357888, 0.35204374, 0.60482439, 0.47952697,
+       0.57959521, 0.3286742 , 0.4599026 , 0.94045514])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="215">
+<div class="sourceCode cell-code" id="cb251"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb251-1"><a href="#cb251-1" aria-hidden="true" tabindex="-1"></a>np.array_equal(M[M<span class="op">&gt;</span><span class="fl">0.3</span>], M[indexer])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="215">
+<pre><code>True</code></pre>
+</div>
+</div>
+</section>
+<section id="sortowanie-arrayi" class="level2" data-number="2.17">
+<h2 data-number="2.17" class="anchored" data-anchor-id="sortowanie-arrayi"><span class="header-section-number">2.17</span> Sortowanie array’i</h2>
+<p>(Prawie) Nic zaskakującego tutaj. Możemy posortować i zwrócić kopię albo posortować <em>w miejscu</em>.</p>
+<div class="cell" data-execution_count="355">
+<div class="sourceCode cell-code" id="cb253"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb253-1"><a href="#cb253-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.random.rand(<span class="dv">5</span>)</span>
+<span id="cb253-2"><a href="#cb253-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> np.sort(x)</span>
+<span id="cb253-3"><a href="#cb253-3" aria-hidden="true" tabindex="-1"></a>x, y</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="355">
+<pre><code>(array([0.47710647, 0.89677463, 0.93797733, 0.79663212, 0.48783838]),
+ array([0.47710647, 0.48783838, 0.79663212, 0.89677463, 0.93797733]))</code></pre>
+</div>
+</div>
+<p>Sortowanie malejąco?</p>
+<div class="cell" data-execution_count="356">
+<div class="sourceCode cell-code" id="cb255"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb255-1"><a href="#cb255-1" aria-hidden="true" tabindex="-1"></a>np.sort(x)[::<span class="op">-</span><span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="356">
+<pre><code>array([0.93797733, 0.89677463, 0.79663212, 0.48783838, 0.47710647])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="360">
+<div class="sourceCode cell-code" id="cb257"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb257-1"><a href="#cb257-1" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> x.sort()  <span class="co"># Zwraca None</span></span>
+<span id="cb257-2"><a href="#cb257-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(z)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>None</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="358">
+<div class="sourceCode cell-code" id="cb259"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb259-1"><a href="#cb259-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="358">
+<pre><code>array([0.47710647, 0.48783838, 0.79663212, 0.89677463, 0.93797733])</code></pre>
+</div>
+</div>
+</section>
+<section id="zwektoryzowany-ifelse" class="level2" data-number="2.18">
+<h2 data-number="2.18" class="anchored" data-anchor-id="zwektoryzowany-ifelse"><span class="header-section-number">2.18</span> Zwektoryzowany ifelse</h2>
+<p><code>np.where</code> to często używana funkcja, warto o niej pamiętać. Drugi argument może być pojedynczym elementem jak i array’em.</p>
+<div class="cell" data-execution_count="308">
+<div class="sourceCode cell-code" id="cb261"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb261-1"><a href="#cb261-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.arange(<span class="dv">10</span>)</span>
+<span id="cb261-2"><a href="#cb261-2" aria-hidden="true" tabindex="-1"></a>np.where(x <span class="op">&gt;</span> <span class="dv">5</span>, <span class="st">"Dużo"</span>, <span class="st">"Mało"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="308">
+<pre><code>array(['Mało', 'Mało', 'Mało', 'Mało', 'Mało', 'Mało', 'Dużo', 'Dużo',
+       'Dużo', 'Dużo'], dtype='&lt;U4')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="362">
+<div class="sourceCode cell-code" id="cb263"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb263-1"><a href="#cb263-1" aria-hidden="true" tabindex="-1"></a>labels <span class="op">=</span> [<span class="ss">f"l_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">10</span>)]</span>
+<span id="cb263-2"><a href="#cb263-2" aria-hidden="true" tabindex="-1"></a>labels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="362">
+<pre><code>['l_0', 'l_1', 'l_2', 'l_3', 'l_4', 'l_5', 'l_6', 'l_7', 'l_8', 'l_9']</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="311">
+<div class="sourceCode cell-code" id="cb265"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb265-1"><a href="#cb265-1" aria-hidden="true" tabindex="-1"></a>np.where(x <span class="op">&gt;</span> <span class="dv">5</span>, labels, <span class="st">"Mało"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="311">
+<pre><code>array(['Mało', 'Mało', 'Mało', 'Mało', 'Mało', 'Mało', 'l_6', 'l_7',
+       'l_8', 'l_9'], dtype='&lt;U4')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="313">
+<div class="sourceCode cell-code" id="cb267"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb267-1"><a href="#cb267-1" aria-hidden="true" tabindex="-1"></a>np.where(x <span class="op">&gt;</span> <span class="dv">5</span>, np.where(x<span class="op">&gt;</span><span class="dv">7</span>, <span class="st">"Bardzo Dużo"</span>, <span class="st">"Dużo"</span>), <span class="st">"Mało"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="313">
+<pre><code>array(['Mało', 'Mało', 'Mało', 'Mało', 'Mało', 'Mało', 'Dużo', 'Dużo',
+       'Bardzo Dużo', 'Bardzo Dużo'], dtype='&lt;U11')</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="zaawansowane-tricki-i-sztuczki" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Zaawansowane tricki i sztuczki</h1>
+<p>Domyślam się, że nie jesteś na tym kursie żeby poznać same podstawy, na pewno interesują Cię jakieś smaczki i subtelności które pokażą, że jesteś sprawnym użytkownikiem numpy’ia!</p>
+<section id="np.r-czyli-nie-chce-pamiętać-np.array-np.arange-np.linspace-i-innych." class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="np.r-czyli-nie-chce-pamiętać-np.array-np.arange-np.linspace-i-innych."><span class="header-section-number">3.1</span> <code>np.r[]</code> czyli nie chce pamiętać <code>np.array</code>, <code>np.arange</code>, <code>np.linspace</code> i innych.</h2>
+<p>Gdy piszesz dużo w numpy, starasz się znajdywać skróty, jednym z nich jest <code>np.r_[]</code> oraz <code>np.c_[]</code> (od row i column).</p>
+<p>W podstawowej formie zastępuje <code>np.array</code>:</p>
+<div class="cell" data-execution_count="88">
+<div class="sourceCode cell-code" id="cb269"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb269-1"><a href="#cb269-1" aria-hidden="true" tabindex="-1"></a>np.r_[<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="88">
+<pre><code>array([0, 1, 2])</code></pre>
+</div>
+</div>
+<p>Ale również arange:</p>
+<div class="cell" data-execution_count="90">
+<div class="sourceCode cell-code" id="cb271"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb271-1"><a href="#cb271-1" aria-hidden="true" tabindex="-1"></a>np.r_[:<span class="dv">3</span>], np.r_[<span class="dv">3</span>:<span class="dv">7</span>:<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="90">
+<pre><code>(array([0, 1, 2]), array([3, 5]))</code></pre>
+</div>
+</div>
+<p>Oraz linspace! Zwróć uwagę, że technicznie rzecz biorąc, ostatnia liczba w range’u to <code>n</code> jednostek urojonych :D</p>
+<div class="cell" data-execution_count="92">
+<div class="sourceCode cell-code" id="cb273"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb273-1"><a href="#cb273-1" aria-hidden="true" tabindex="-1"></a>np.r_[<span class="dv">0</span>:<span class="dv">5</span>:<span class="ot">4j</span>], np.r_[<span class="dv">0</span>:<span class="dv">5</span>:<span class="ot">11j</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="92">
+<pre><code>(array([0.        , 1.66666667, 3.33333333, 5.        ]),
+ array([0. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5, 5. ]))</code></pre>
+</div>
+</div>
+<p>To nie wszystko, możemy od razu łatwo tworzyć macierze!</p>
+<div class="cell" data-execution_count="112">
+<div class="sourceCode cell-code" id="cb275"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb275-1"><a href="#cb275-1" aria-hidden="true" tabindex="-1"></a>np.c_[[<span class="dv">0</span>, <span class="dv">1</span>], [<span class="dv">2</span>, <span class="dv">3</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="112">
+<pre><code>array([[0, 2],
+       [1, 3]])</code></pre>
+</div>
+</div>
+<p>hstack</p>
+<div class="cell" data-execution_count="114">
+<div class="sourceCode cell-code" id="cb277"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb277-1"><a href="#cb277-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.r_[:<span class="dv">3</span>]</span>
+<span id="cb277-2"><a href="#cb277-2" aria-hidden="true" tabindex="-1"></a>np.r_[x, x], np.c_[x, x]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="114">
+<pre><code>(array([0, 1, 2, 0, 1, 2]),
+ array([[0, 0],
+        [1, 1],
+        [2, 2]]))</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="117">
+<div class="sourceCode cell-code" id="cb279"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb279-1"><a href="#cb279-1" aria-hidden="true" tabindex="-1"></a>np.r_[:<span class="dv">3</span>, :<span class="dv">5</span>, :<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="117">
+<pre><code>array([0, 1, 2, 0, 1, 2, 3, 4, 0, 1, 2])</code></pre>
+</div>
+</div>
+</section>
+<section id="nie-chce-mi-się-liczyć-ostatniego-wymiaru" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="nie-chce-mi-się-liczyć-ostatniego-wymiaru"><span class="header-section-number">3.2</span> Nie chce mi się liczyć ostatniego wymiaru…</h2>
+<p>Czasem przy reshapowaniu nie chce nam się liczyć ostatniego wymiaru, który jest <em>oczywisty</em> , bo wychodzi z innych. Na to też jest trick.</p>
+<div class="cell" data-execution_count="119">
+<div class="sourceCode cell-code" id="cb281"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb281-1"><a href="#cb281-1" aria-hidden="true" tabindex="-1"></a><span class="co"># automatycznie zostało wyliczone 111//3 == 37 i wstawione za -1</span></span>
+<span id="cb281-2"><a href="#cb281-2" aria-hidden="true" tabindex="-1"></a>np.arange(<span class="dv">111</span>).reshape((<span class="dv">3</span>, <span class="op">-</span><span class="dv">1</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="119">
+<pre><code>array([[  0,   1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,  12,
+         13,  14,  15,  16,  17,  18,  19,  20,  21,  22,  23,  24,  25,
+         26,  27,  28,  29,  30,  31,  32,  33,  34,  35,  36],
+       [ 37,  38,  39,  40,  41,  42,  43,  44,  45,  46,  47,  48,  49,
+         50,  51,  52,  53,  54,  55,  56,  57,  58,  59,  60,  61,  62,
+         63,  64,  65,  66,  67,  68,  69,  70,  71,  72,  73],
+       [ 74,  75,  76,  77,  78,  79,  80,  81,  82,  83,  84,  85,  86,
+         87,  88,  89,  90,  91,  92,  93,  94,  95,  96,  97,  98,  99,
+        100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110]])</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="numba-czyli-jak-wygrać-z-pętlami" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Numba czyli jak wygrać z pętlami</h1>
+<p>W wielu symulacjach fizycznych, chemicznych, ekonomicznych nie możemy <em>obyć się</em> bez pętli. Jak już jednak ustaliliśmy pętle w pythonie są bardzo wolne.</p>
+<p>Na szczęście i na to jest sposób</p>
+<section id="suma-z-numbą" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="suma-z-numbą"><span class="header-section-number">4.1</span> Suma z numbą</h2>
+<p>Rozważmy sumę, którą liczyliśmy jakiś czas temu wcześniej.</p>
+<div class="cell" data-execution_count="164">
+<div class="sourceCode cell-code" id="cb283"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb283-1"><a href="#cb283-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numba <span class="im">import</span> jit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="165">
+<div class="sourceCode cell-code" id="cb284"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb284-1"><a href="#cb284-1" aria-hidden="true" tabindex="-1"></a><span class="at">@jit</span></span>
+<span id="cb284-2"><a href="#cb284-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> loop_sum2(x):</span>
+<span id="cb284-3"><a href="#cb284-3" aria-hidden="true" tabindex="-1"></a>    c <span class="op">=</span> <span class="fl">0.0</span></span>
+<span id="cb284-4"><a href="#cb284-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> e <span class="kw">in</span> x:</span>
+<span id="cb284-5"><a href="#cb284-5" aria-hidden="true" tabindex="-1"></a>        c <span class="op">+=</span> e</span>
+<span id="cb284-6"><a href="#cb284-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> c</span>
+<span id="cb284-7"><a href="#cb284-7" aria-hidden="true" tabindex="-1"></a>loop_sum2(x_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="165">
+<pre><code>500092.9540528014</code></pre>
+</div>
+</div>
+<p>Dla przypomnienia czasy wersji bez jit oraz numpyowej sumy</p>
+<div class="cell" data-execution_count="134">
+<div class="sourceCode cell-code" id="cb286"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb286-1"><a href="#cb286-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>timeit loop_sum(x_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>86.9 ms ± 3.26 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="135">
+<div class="sourceCode cell-code" id="cb288"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb288-1"><a href="#cb288-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>timeit x_sum.<span class="bu">sum</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>436 µs ± 21.1 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="136">
+<div class="sourceCode cell-code" id="cb290"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb290-1"><a href="#cb290-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>timeit loop_sum2(x_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>823 µs ± 10.4 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)</code></pre>
+</div>
+</div>
+<p>Jak widzimy nasze rozwiązanie jest wolniejsze od implementacji numpy’a, ale tylko 2 razy!!!</p>
+</section>
+<section id="symulacja-stochastycznego-równania-różniczkowego-coś-z-sgh" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="symulacja-stochastycznego-równania-różniczkowego-coś-z-sgh"><span class="header-section-number">4.2</span> Symulacja stochastycznego równania różniczkowego – coś z SGH</h2>
+<p>Częstym przypadkiem gdzie nie da się zwektoryzować operacji jest symulacja stochastycznego równania różniczkowego.</p>
+<p>Popatrzmy na zadanie:</p>
+<blockquote class="blockquote">
+<p>Masz na początku 100zł. Dywersyfikujesz ryzyko i obierasz 2 strategie jednocześnie. Każdego dnia inwestujesz: 1. 10% swojego majątku w inwestycję która z prawdopodobieństwem 10% daje Ci 10 razy zainwestowane 10%. 2. 50% swojego majątku w inwestycję która daje Ci zainwestowane 50% plus 2% zainwestowanej kwoty.</p>
+<p>Dokonaj 10000 symulacji i sprawdź w ilu przypadkach i po ilu dniach docierasz do 10 000zł, a w ilu przypadkach i po ilu dniach spadasz poniżej 10zł.</p>
+</blockquote>
+<div class="cell" data-execution_count="152">
+<div class="sourceCode cell-code" id="cb292"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb292-1"><a href="#cb292-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulation1(n):</span>
+<span id="cb292-2"><a href="#cb292-2" aria-hidden="true" tabindex="-1"></a>    days <span class="op">=</span> np.zeros(n)</span>
+<span id="cb292-3"><a href="#cb292-3" aria-hidden="true" tabindex="-1"></a>    wins <span class="op">=</span> np.zeros(n, dtype<span class="op">=</span><span class="bu">bool</span>)</span>
+<span id="cb292-4"><a href="#cb292-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb292-5"><a href="#cb292-5" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb292-6"><a href="#cb292-6" aria-hidden="true" tabindex="-1"></a>        M <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb292-7"><a href="#cb292-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb292-8"><a href="#cb292-8" aria-hidden="true" tabindex="-1"></a>            inv1 <span class="op">=</span> <span class="fl">0.1</span> <span class="op">*</span> M</span>
+<span id="cb292-9"><a href="#cb292-9" aria-hidden="true" tabindex="-1"></a>            inv2 <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> M</span>
+<span id="cb292-10"><a href="#cb292-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> np.random.rand() <span class="op">&lt;</span> <span class="fl">0.1</span>:</span>
+<span id="cb292-11"><a href="#cb292-11" aria-hidden="true" tabindex="-1"></a>                M <span class="op">+=</span> inv1 <span class="op">*</span> <span class="dv">9</span></span>
+<span id="cb292-12"><a href="#cb292-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb292-13"><a href="#cb292-13" aria-hidden="true" tabindex="-1"></a>                M <span class="op">-=</span> inv1</span>
+<span id="cb292-14"><a href="#cb292-14" aria-hidden="true" tabindex="-1"></a>            M <span class="op">+=</span> inv2 <span class="op">*</span> <span class="fl">0.02</span></span>
+<span id="cb292-15"><a href="#cb292-15" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> M <span class="op">&gt;</span> <span class="dv">10_000</span>:</span>
+<span id="cb292-16"><a href="#cb292-16" aria-hidden="true" tabindex="-1"></a>                days[i] <span class="op">=</span> d</span>
+<span id="cb292-17"><a href="#cb292-17" aria-hidden="true" tabindex="-1"></a>                wins[i] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb292-18"><a href="#cb292-18" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb292-19"><a href="#cb292-19" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> M <span class="op">&lt;</span> <span class="dv">10</span>:</span>
+<span id="cb292-20"><a href="#cb292-20" aria-hidden="true" tabindex="-1"></a>                days[i] <span class="op">=</span> d</span>
+<span id="cb292-21"><a href="#cb292-21" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb292-22"><a href="#cb292-22" aria-hidden="true" tabindex="-1"></a>            d <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb292-23"><a href="#cb292-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> days, wins</span>
+<span id="cb292-24"><a href="#cb292-24" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="153">
+<div class="sourceCode cell-code" id="cb293"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb293-1"><a href="#cb293-1" aria-hidden="true" tabindex="-1"></a>days, wins <span class="op">=</span> simulation1(<span class="dv">100_000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="160">
+<div class="sourceCode cell-code" id="cb294"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb294-1"><a href="#cb294-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>timeit simulation1(<span class="dv">100_000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4.55 s ± 133 ms per loop (mean ± std. dev. of 7 runs, 1 loop each)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="158">
+<div class="sourceCode cell-code" id="cb296"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb296-1"><a href="#cb296-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Wygrane</span></span>
+<span id="cb296-2"><a href="#cb296-2" aria-hidden="true" tabindex="-1"></a>wins.<span class="bu">sum</span>(), days[wins].<span class="bu">min</span>(), days[wins].mean(), np.median(days[wins]), days[wins].<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="158">
+<pre><code>(2654, 12.0, 160.91220798794274, 131.0, 917.0)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="159">
+<div class="sourceCode cell-code" id="cb298"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb298-1"><a href="#cb298-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Przegrane :(</span></span>
+<span id="cb298-2"><a href="#cb298-2" aria-hidden="true" tabindex="-1"></a>(<span class="op">~</span>wins).<span class="bu">sum</span>(), days[<span class="op">~</span>wins].<span class="bu">min</span>(), days[<span class="op">~</span>wins].mean(), np.median(days[<span class="op">~</span>wins]), days[<span class="op">~</span>wins].<span class="bu">max</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="159">
+<pre><code>(97346, 25.0, 105.61850512604524, 72.0, 1401.0)</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="184">
+<div class="sourceCode cell-code" id="cb300"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb300-1"><a href="#cb300-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="298">
+<div class="sourceCode cell-code" id="cb301"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb301-1"><a href="#cb301-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ładniejsze wykresy za 2 tygodnie ^^</span></span>
+<span id="cb301-2"><a href="#cb301-2" aria-hidden="true" tabindex="-1"></a>plt.hist(days[wins], bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb301-3"><a href="#cb301-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Wygrane"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="298">
+<pre><code>Text(0.5, 1.0, 'Wygrane')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_numpy_files/figure-html/cell-158-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="302">
+<div class="sourceCode cell-code" id="cb303"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb303-1"><a href="#cb303-1" aria-hidden="true" tabindex="-1"></a>plt.hist(days[<span class="op">~</span>wins], bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb303-2"><a href="#cb303-2" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Przegrane"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="302">
+<pre><code>Text(0.5, 1.0, 'Przegrane')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="02_numpy_files/figure-html/cell-159-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Teraz wykonanie kodu trwało kilka sekund ale co jeżeli potrzebujemy dłuższych symulacji, jak wykorzystać tutaj numbę?</p>
+<div class="cell" data-execution_count="335">
+<div class="sourceCode cell-code" id="cb305"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb305-1"><a href="#cb305-1" aria-hidden="true" tabindex="-1"></a><span class="at">@jit</span></span>
+<span id="cb305-2"><a href="#cb305-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulation2(n):</span>
+<span id="cb305-3"><a href="#cb305-3" aria-hidden="true" tabindex="-1"></a>    days <span class="op">=</span> np.zeros(n)</span>
+<span id="cb305-4"><a href="#cb305-4" aria-hidden="true" tabindex="-1"></a>    wins <span class="op">=</span> np.zeros(n, dtype<span class="op">=</span>np.bool_)  <span class="co"># tutaj trzeba wprowadzić&nbsp;poprawkę, żeby działało</span></span>
+<span id="cb305-5"><a href="#cb305-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(n):</span>
+<span id="cb305-6"><a href="#cb305-6" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb305-7"><a href="#cb305-7" aria-hidden="true" tabindex="-1"></a>        M <span class="op">=</span> <span class="dv">100</span></span>
+<span id="cb305-8"><a href="#cb305-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb305-9"><a href="#cb305-9" aria-hidden="true" tabindex="-1"></a>            inv1 <span class="op">=</span> <span class="fl">0.1</span> <span class="op">*</span> M</span>
+<span id="cb305-10"><a href="#cb305-10" aria-hidden="true" tabindex="-1"></a>            inv2 <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> M</span>
+<span id="cb305-11"><a href="#cb305-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> np.random.rand() <span class="op">&lt;</span> <span class="fl">0.1</span>:</span>
+<span id="cb305-12"><a href="#cb305-12" aria-hidden="true" tabindex="-1"></a>                M <span class="op">+=</span> inv1 <span class="op">*</span> <span class="dv">9</span></span>
+<span id="cb305-13"><a href="#cb305-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">else</span>:</span>
+<span id="cb305-14"><a href="#cb305-14" aria-hidden="true" tabindex="-1"></a>                M <span class="op">-=</span> inv1</span>
+<span id="cb305-15"><a href="#cb305-15" aria-hidden="true" tabindex="-1"></a>            M <span class="op">+=</span> inv2 <span class="op">*</span> <span class="fl">0.02</span></span>
+<span id="cb305-16"><a href="#cb305-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> M <span class="op">&gt;</span> <span class="fl">10_000.0</span>:</span>
+<span id="cb305-17"><a href="#cb305-17" aria-hidden="true" tabindex="-1"></a>                days[i] <span class="op">=</span> d</span>
+<span id="cb305-18"><a href="#cb305-18" aria-hidden="true" tabindex="-1"></a>                wins[i] <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb305-19"><a href="#cb305-19" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb305-20"><a href="#cb305-20" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> M <span class="op">&lt;</span> <span class="fl">10.0</span>:</span>
+<span id="cb305-21"><a href="#cb305-21" aria-hidden="true" tabindex="-1"></a>                days[i] <span class="op">=</span> d</span>
+<span id="cb305-22"><a href="#cb305-22" aria-hidden="true" tabindex="-1"></a>                <span class="cf">break</span></span>
+<span id="cb305-23"><a href="#cb305-23" aria-hidden="true" tabindex="-1"></a>            d <span class="op">+=</span> <span class="dv">1</span></span>
+<span id="cb305-24"><a href="#cb305-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> days, wins</span>
+<span id="cb305-25"><a href="#cb305-25" aria-hidden="true" tabindex="-1"></a>_ <span class="op">=</span> simulation2(<span class="dv">100_000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="171">
+<div class="sourceCode cell-code" id="cb306"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb306-1"><a href="#cb306-1" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>timeit simulation2(n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>47.6 ms ± 627 µs per loop (mean ± std. dev. of 7 runs, 10 loops each)</code></pre>
+</div>
+</div>
+<p>Ponad 100 razy krócej… Potencjalne skrócenie czasu eksperymentu z jednego dnia do 15minut, to dużo!</p>
+<p>Ale czy można jeszcze bardziej? Czasem można wykorzystując paralelizm i gpu, zainteresowanych odsyłam <a href="https://numba.pydata.org/">do dokumentacji</a> i <a href="https://numba.pydata.org/numba-doc/latest/user/examples.html">przykładów</a>.</p>
+</section>
+</section>
+<section id="nie-weszło-na-sprint-ale-może-się-przydać" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Nie weszło na sprint ale może się przydać…</h1>
+<p>Oczywiście nie jest to pełny opis możliwości numpy’a, ale warto sprawdzić w razie potrzeb:</p>
+<ul>
+<li><a href="https://numpy.org/doc/stable/user/basics.copies.html">Widoki vs kopie</a></li>
+<li>Operacje inplace, zmieniające array’a</li>
+<li><code>np.linalg</code> - rozkłady macierzy, wartości własne itd.</li>
+<li><code>np.fft</code> - szybka transformata Fouriera</li>
+<li><code>np.random</code> - różne rozkłady oraz generatory liczb losowych</li>
+<li><code>np.polynomial</code> - praca z wielomianami</li>
+<li><code>np.histogram</code> - histogram ale same liczby</li>
+<li><code>np.einsum</code> - <strong>super</strong> sprytne obliczenia na tensorach</li>
+<li><a href="https://numpy.org/doc/stable/user/how-to-io.html">Praca z plikami</a></li>
+<li><a href="https://numpy.org/doc/stable/user/numpy-for-matlab-users.html">Poradnik dla matlabowców</a></li>
+</ul>
+</section>
+<section id="do-pracy-domowej" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Do pracy domowej</h1>
+<p>W przypadku zadania z Monte Carlo zacznij od oszacowania liczby <span class="math inline">\(\pi\)</span> :)</p>
+<p>Kilka linków które mogą się przydać:</p>
+<ul>
+<li>https://www.geeksforgeeks.org/estimating-value-pi-using-monte-carlo/</li>
+<li>https://www.youtube.com/watch?v=WAf0rqwAvgg</li>
+</ul>
+<p>Poniżej znajdziesz więcej zdań do poćwiczenia. Odpowiedzi z podpunktów 5 i 9 umieść w google formsie.</p>
+<p>Korzystając z następującego array’a:</p>
+<div class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb308"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb308-1"><a href="#cb308-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1337</span>)</span>
+<span id="cb308-2"><a href="#cb308-2" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> np.<span class="bu">round</span>(np.random.normal(size<span class="op">=</span><span class="dv">30</span>), <span class="dv">2</span>)</span>
+<span id="cb308-3"><a href="#cb308-3" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x <span class="op">+</span> np.<span class="bu">round</span>(np.random.normal(size<span class="op">=</span><span class="dv">30</span>) <span class="op">*</span> <span class="fl">0.1</span>, <span class="dv">2</span>)</span>
+<span id="cb308-4"><a href="#cb308-4" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="14">
+<pre><code>array([-0.7 , -0.49, -0.32, -1.76,  0.21, -2.01, -0.56,  0.34,  1.55,
+       -1.37,  1.43, -0.28, -0.56,  1.19,  1.7 , -1.69, -0.7 ,  0.58,
+        0.98, -1.22, -1.33, -0.  , -1.31, -0.38,  1.27,  0.12,  0.15,
+       -2.75, -0.36,  0.01])</code></pre>
+</div>
+</div>
+<p>Wyznacz/policz:</p>
+<ol type="1">
+<li>Średnią z <code>x</code></li>
+<li>Sumę <code>x</code></li>
+<li>Średnią z wartości bezwzględnych z <code>x</code></li>
+<li>Element najbardziej odległy od <span class="math inline">\(0\)</span> z <code>x</code></li>
+<li>Element najbardziej odległy od <span class="math inline">\(2\)</span> z <code>x</code></li>
+<li>Array który ustawi elementy mniejsze od <span class="math inline">\(-1\)</span> na <span class="math inline">\(-1\)</span>, a większe od <span class="math inline">\(1\)</span> na <span class="math inline">\(1\)</span></li>
+<li>Średni błąd między (ERR) <code>x</code> i <code>y</code></li>
+<li>Średni błąd bezwzględny (MAD) między <code>x</code> i <code>y</code></li>
+<li>Średni błąd kwadratowy (MSE) między <code>x</code> i <code>y</code></li>
+<li>Pierwiastek ze średniego błędu kwadratowego (RMSE) między <code>x</code> i <code>y</code></li>
+</ol>
+<p>Napisz funkcję <code>standardize(X)</code>, która unormuje każdą kolumnę macierzy <code>X</code> (każdą oddzielnie). Średnia z każdej kolumny powinna być równa <span class="math inline">\(0\)</span>, a odchylenie standardowe równe <span class="math inline">\(1\)</span>. Jest to procedura bardzo często stosowana w MLu.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+    } else {
+      disableStylesheet(alternateStylesheets);
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'alternate';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
