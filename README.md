@@ -3,7 +3,7 @@
 ![logo](resources/logo2.png)
 
 Strona materiały do kursu Python LevelUP: Data Science by Appsilon.
-Nowe fragmenty będą pojawiać się na bieżąco.
+Nowe fragmenty będą pojawiać się na bieżąco po zajęciach.
 
 ## Harmonogram
 
@@ -17,14 +17,14 @@ Nowe fragmenty będą pojawiać się na bieżąco.
 
 Do pracy będziemy wykorzystywać:
 
-- Python 3.9/3.10 via [Anaconda](https://www.anaconda.com/products/distribution#Downloads) + liczne paczki
+- Python 3.9/3.10 via [Anaconda](https://www.anaconda.com/products/distribution#Downloads) + liczne paczki z [requirements.txt](requirements.txt)
 - Visual Studio Code aka [VS Code](https://code.visualstudio.com/download)
 
 ### Anaconda i Środowisko pythonowe
 
 Zainstaluj [Anacondę](https://www.anaconda.com/products/distribution#Downloads) korzystając z oficjalnej strony.
 
-Ściągnij repozytorium gitowe.
+Ściągnij to repozytorium gitowe.
 Następnie w terminalu (jeżeli korzystasz z Linuxa/Maca) lub uruchamiając _Anaconda prompt_ przejdź do folderu z repozytorium, a następnie wywołaj następujące polecenia:
 
 ```
