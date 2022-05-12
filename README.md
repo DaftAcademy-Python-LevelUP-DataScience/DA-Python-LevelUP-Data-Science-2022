@@ -55,4 +55,4 @@ Po zainstalowaniu VS Code'a uruchom go i zainstaluj wtyczki:
 
 ## Licencja
 
-Materiały zostały stworzone przez @pstorozenko z [Appsilon](https://appsilon.com/) i są dostępne na licencji [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
+Materiały przygotował [Piotr Pasza Storożenko](https://pstorozenko.github.io/) z [Appsilon](https://appsilon.com/) i są dostępne na licencji [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
