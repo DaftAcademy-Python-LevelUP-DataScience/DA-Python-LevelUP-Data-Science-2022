@@ -243,3 +243,59 @@ Zainstaluj rozszerzenia:
 . . .
 
 ![](images/sofast.gif){fig-align="center"}
+
+# `pip` vs `conda` vs `pipenv` vs ...
+
+We need multiple environments on a single machine.
+
+How to live, what to use?
+
+. . .
+
+**NEVER PLAY WITH DATA SCIENCE ON YOUR DEFAULT SYSTEM'S PYTHON**
+
+## `pip` + `virtualenv`
+
+1. A basic package manager included in python
+2. Works only for **a single** version of python
+3. Capable of installing **python packages only**
+4. Basic package versioning with `pip freeze`
+5. Pretty fast when doesn't have to build packages
+
+## `conda`{.smaller}
+
+1. A package manager provided by Anaconda
+2. Allows for creating different environments for different major (`3.9`/`3.10`) and minor (`3.10.3`/`3.10.4`) python versions
+3. Is able to install **other software than python packages as well** (e.g. `R` or CUDA drivers)
+4. Basic package versioning with `conda list --export`
+5. Super slow for bigger environments
+6. Packages installed with conda can be shared across environments -- lower disk usage (sole PyTorch is ~1.7GB)
+
+## `pipenv`
+
+1. Looks like `pip` + `virtualenv` plus different python versions
+2. Very big focus on environment reproducibility
+3. Super slow for bigger environments
+
+## How to live?{.smaller}
+
+The most reliable setup for experimenting is to do:
+
+```
+conda create -n my-env python==3.10.4
+conda activate my-env
+pip install ...
+```
+
+If you need to install CUDA drivers then do it on environment creation `conda create -n my-env python cudatoolkit`.
+
+After you install all packages, save in README file **python version**, e.g.,
+
+> Project created with python 3.10.4.
+
+and store installed packages with `pip freeze > requirements.txt`.
+
+. . .
+
+Remember that not every package version is available for every python version.
+For example Tensorflow 2.10 is supported only in python>=3.10.

@@ -1,0 +1,243 @@
+---
+title: "Python LevelUP: Data Science by Appsilon"
+subtitle: "Types of data in Data Science"
+author: "Piotr Pasza Storożenko@Appsilon"
+lang: "en"
+format: 
+  revealjs:
+    self-contained: true
+    theme: [dark]
+    logo: images/logo2.png
+editor_options: 
+  markdown: 
+    wrap: 99
+---
+
+# Dataframes
+
+The building block of data science.
+
+## Dataframe example {.smaller}
+
+Dataframes are the most common data type in Data Science.
+
+| Name    | Surname | Race   | Salary | Profession  | Age of Death |
+|---------|---------|--------|--------|-------------|--------------|
+| Bilbo   | Baggins | Hobbit | 10000  | Retired     | 131          |
+| Frodo   | Baggins | Hobbit | 70000  | Ring-bearer | 53           |
+| Sam     | Gamgee  | Hobbit | 60000  | Security    | 102          |
+| Aragorn | NA      | Human  | 60000  | Security    | 210          |
+
+This is a dataframe with **four** rows and six columns.
+
+- Dataframes may also be called _tables_.
+- Rows may be called _observations_.
+- Columns may be called _features_ or _variables_.
+
+Since this is a table, **every observation must have the same number of columns**.
+However, some of them might be _missing_ (NA - not available).
+
+## Rows and columns{.smaller}
+
+Each row represents **a single entity**, e.g.:
+
+- A single student on the university students' list
+- A single part in a warehouse
+- Weekly sales for different shops
+
+. . .
+
+Values in a single column have usually the same type for every observation.
+
+- `Salary` is of type `float`.
+- `Age of Death` is of type `int`.
+- `Name` and `Surname` are of type `string`.
+- `Race` is of type **categorical**.
+
+## Categorical datatype -- examples{.smaller}
+
+Values that belong to only few distinct categories are called [categorical data](https://en.wikipedia.org/wiki/Categorical_variable) (also called factors).
+
+Examples of factors:
+
+- `Race` from the above example (let's exclude cases of being half-elf for now).
+- Color of eyes
+- Gender, although one should be careful as it might be a sensitive topic in some cases
+- Day of a week
+- Mark at the university (2, 3, 4, 5)
+- Country of birth
+
+## Categorical datatype -- storing problem and solution{.smaller}
+
+Imagine having a database of everyone in Poland (over 40mln rows right now).
+If we look at a column `Country of Birth`, values will have only one of ~200 distinct values (since there are ~200 _available_ countries to choose from).
+
+. . .
+
+We might store name of country as a `string` in memory but it will be unefficient, think of string array storage problem and country's names like `United Kingdom of Great Britain and Northern Ireland`.
+
+. . .
+
+It's much more resonable to store in memory mapping:
+
+1. Republic of Poland
+2. Ukraine
+3. United Kingdom of Great Britain and Northern Ireland
+
+and then store only values $1,2, ..., 200$ in `Country of Birth` column.
+This is what categorical values are for.
+
+## Storing dataframes
+
+Depending on the volume of data, it is ususaly stored in the following formats:
+
+- [CSV, TSV file](https://en.wikipedia.org/wiki/Comma-separated_values)
+- [Arrow file](https://en.wikipedia.org/wiki/Apache_Arrow)
+- [Table in some SQL database](https://en.wikipedia.org/wiki/SQL)
+
+# Unstructured data
+
+## JSON{.smaller}
+
+Sometimes it's not convenient to place data in table in sql-friendly format.
+For example we might be quering some APIs for diffent books by `isbn` code and get responses in json's like:
+
+```json
+{
+  "isbn": "123-456-222",
+  "authors": [
+    {
+      "lastname": "Piotr",
+      "middlename": "Pasza",
+      "firstname": "Storozenko"
+    }
+  ],
+  "title": "Python LevelUP: Data Science by Appsilon",
+  "category": [
+    "Non-Fiction",
+    "Pure Fiction"
+  ]
+}
+```
+
+Not that `authors` is a list with a single element.
+
+We call this kind of data _unstructured_ even though there is some structure.
+
+## XML{.smaller}
+
+XML file format is similar to json, but has much more redundant signs, so it is _heavier_ in size on disk.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+   <authors>
+      <element>
+         <firstname>Storozenko</firstname>
+         <lastname>Piotr</lastname>
+         <middlename>Pasza</middlename>
+      </element>
+   </authors>
+   <category>
+      <element>Non-Fiction</element>
+      <element>Pure Fiction</element>
+   </category>
+   <isbn>123-456-222</isbn>
+   <title>Python LevelUP: Data Science by Appsilon</title>
+</root>
+```
+
+# Images
+
+## Images
+
+We all know what an image is.
+
+. . .
+
+![An example of image](images/one_does.jpg)
+
+## Images
+
+We all know what an image is.
+
+It's a tensor of dimensions `[C, H, W]`:
+
+- `C` -- channels, 1 for black and white images, 3 for RGB, 4 for RGB with transparency, more for satellite image
+- `H` -- height
+- `W` -- width
+
+`[3, 355, 355]` in Boromir's case
+
+## How to store images
+
+On one hand there are multiple image formats like jpg, png, bpm, **webp**.
+Here we would like to ask _how to store images_.
+
+It must be a format that is convenient to use images in ML.
+
+## Storing images and metadata{.smaller}
+
+We can store images in `data` folder and store additional dataframe like:
+
+| Split | File                      | Class |
+|-------|---------------------------|-------|
+| train | 0013035.jpg               | ants  |
+| train | 1030023514_aad5c608f9.jpg | ants  |
+| train | 1092977343_cb42b38d62.jpg | bees  |
+| train | 1093831624_fb5fbe2308.jpg | bees  |
+| val   | 10308379_1b6c72e180.jpg   | ants  |
+| val   | 1053149811_f62a3410d3.jpg | ants  |
+| val   | 1032546534_06907fe3b3.jpg | bees  |
+| val   | 10870992_eebeeb3a12.jpg   | bees  |
+| ...   | ...                       | ...   |
+
+
+## Storing image folderwise{.smaller}
+
+We can just perserve the following directory structure:
+
+```
+data
+├── train
+│   ├── ants
+│   │   ├── 0013035.jpg
+│   │   ├── 1030023514_aad5c608f9.jpg
+│   │   ...
+│   └── bees
+│       ├── 1092977343_cb42b38d62.jpg
+│       ├── 1093831624_fb5fbe2308.jpg
+│       ...
+└── val
+    ├── ants
+    │   ├── 10308379_1b6c72e180.jpg
+    │   ├── 1053149811_f62a3410d3.jpg
+    │   ...
+    └── bees
+        ├── 1032546534_06907fe3b3.jpg
+        ├── 10870992_eebeeb3a12.jpg
+        ...
+```
+
+Then it's harder to work with data, but we can easily extend the dataset.
+
+# Other kinds of data
+
+## Other kinds of data
+
+Of course there are many more kinds of data like:
+
+- Raw text data
+- Audio data
+- Animations data
+
+But they tend to follow similar patterns.
+
+# Data versioning
+
+## Data versioning
+
+If we have **very** small amount of data, we can just store it in git.
+Very often it's quickly not enough.
+
+I recomend using [dvc](https://dvc.org/) as a convinient tool for data versioniong.

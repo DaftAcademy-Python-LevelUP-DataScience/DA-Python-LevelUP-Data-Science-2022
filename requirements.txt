@@ -17,3 +17,4 @@ scikit-learn
 streamlit
 uvicorn[standard]
 xgboost
+zstandard
