@@ -4,6 +4,7 @@ ipython
 ipywidgets
 jupyterlab
 lightgbm
+lxml
 matplotlib
 numba
 numpy
