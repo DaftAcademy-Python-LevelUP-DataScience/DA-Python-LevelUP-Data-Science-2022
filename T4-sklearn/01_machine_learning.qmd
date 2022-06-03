@@ -1,0 +1,161 @@
+---
+title: "Python LevelUP: Data Science by Appsilon"
+subtitle: "Machine Learning"
+author: "Piotr Pasza Storożenko@Appsilon"
+lang: "pl"
+format: 
+  revealjs:
+    theme: [dark]
+    logo: images/logo2.png
+    self-contained: true
+editor_options: 
+  markdown: 
+    wrap: 99
+---
+
+# Problems machine learning solve
+
+## How do we divide ML
+
+- Supervised (pol. Nadzorowane)
+  - Classification (pol. Klasyfikacja)
+  - Regression (pol. Regresja)
+- Unsupervised (pol. Nienadzorowane)
+  - Clustering (pol. Analiza skupień)
+
+## Classification
+
+Our aim is to predict the **discrete** value.
+
+. . .
+
+Example classification problems:
+
+- Model that distinguishes between cats and dogs
+- Document classification into given classes
+- Deciding whether tweet is toxic or not
+- Product categorization
+- Fraud detection
+
+## Regression
+
+Our aim is to predict the **continuous** value.
+
+. . .
+
+Example regression problems:
+
+- Real estate price prediction
+- Sales revenue prediction
+- Age estimation
+
+## Clustering
+
+Our aim is to **find similar** entities.
+
+. . .
+
+Example clustering problems:
+
+- Find similar products
+- Suggest similar artists
+
+# Basic rules of approaching ML problems
+
+## Metric
+
+To solve an ML problem we must be able to say which model is good and which bad.
+
+The single number that will decide whether the model is good or bad is called **metric**.
+
+With metric we can ask the computer to find _the best model_.
+
+We use different metrics in different tasks.
+
+## Example regression metrics:
+
+- Mean square error
+- Mean absolute error
+
+## Example classification metrics
+
+:::: {.columns}
+
+::: {.column width="40%"}
+- Accuracy
+- Precision
+- Recall
+- F1
+
+:::
+
+::: {.column width="60%"}
+![](images/Precisionrecall.png){height="600"}
+
+:::
+
+::::
+
+## What is learned from what{.smaller}
+
+We start with the whole dataset and divide its columns into `X` and `y`.
+
+- `X` is matrix with columns, features that will be used to train the model
+- `y` is a **target** vector
+
+Examples:
+
+In case of flats price prediction, `X` will consist of columns like flat size, number of rooms, number of bathrooms, indication if flat has a balcony and so on. `y` will be the price.
+
+In case of cats vs dogs prediction, the `X` are pixels values, `y` is label `cat`/`dog`.
+
+## Train test split
+
+We usually want to train the model on part of data and check it's performance on the rest.
+
+The basic approach to this is train test split:
+
+![](images/traintest.png)
+
+:::{.footer}
+Source: https://towardsdatascience.com/understanding-train-test-split-scikit-learn-python-ea676d5e3d1
+:::
+
+
+## Train test split{.smaller}
+
+![](images/traintest.png)
+
+1. Train model `m` on `X_train` and `y_train`.
+2. Get predictions `y_pred` by evaluating model `m` on `X_test`.
+3. Calculate metric by comparing `y_pred` and `y_test`.
+
+:::{.footer}
+Source: https://towardsdatascience.com/understanding-train-test-split-scikit-learn-python-ea676d5e3d1
+:::
+
+# The most common columns transformations
+
+The majority of models expect an input to be in form of numeric values.
+Often it's not the case...
+
+## One-hot encoding
+
+The easiest way to convert categorical values to numeric is so called one-hot encoding.
+
+![](images/onehot.png)
+
+:::{.footer}
+Source: https://towardsdatascience.com/building-a-one-hot-encoding-layer-with-tensorflow-f907d686bf39
+:::
+
+## Smarter `NA` trick{.smaller}
+
+We've learned how to fill `NA` with zeros in pandas.
+
+Sometimes filling with median/mean value makes more sense.
+It's worth experimenting and trying different approaches yourself! 
+
+A smart trick to get more information from `NA` is to, apart from filling it, add new column with boolean value like so:
+
+![](images/NA_trick.png)
