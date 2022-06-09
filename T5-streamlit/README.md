@@ -1,5 +1,7 @@
 # Week 5 - streamlit, fastapi \& quarto
 
+## Streamlit
+
 This week we will see examples of how to create applications in streamlit through:
 
 - [Hello world application](hello_world)
@@ -8,10 +10,26 @@ This week we will see examples of how to create applications in streamlit throug
 - [Favorite dish application](dishes/favorite_dish.py)
 - [Test checker application](checker/main2.py)
 
+Run, e.g., with:
+
+```
+streamlit run main.py
+```
+
+## FastAPI
+
 Later we will see a small example of creating REST API through FastAPI:
 
 - [Boston model price predictor](simple_api/boston_api.py)
 - [Image color predictor](simple_api/image_api.py)
+
+Run, e.g., with:
+
+```
+uvicorn boston_api:app
+```
+
+## Quarto 
 
 Finally we will see how to create [a simple report in Quarto](quarto_demo/README.md)
 
